@@ -1,18 +1,38 @@
-import type { Metadata } from "next";
-import { businessConfig, siteConfig } from "@/lib";
+import type { Metadata, Viewport } from "next";
+import { Playfair_Display, Poppins } from "next/font/google";
+import { Footer } from "@/components/Footer";
+import { JsonLd } from "@/components/JsonLd";
+import { PremiumNavbar } from "@/components/PremiumNavbar";
+import { ThemeRegistry } from "@/components/ThemeRegistry";
+import { businessConfig } from "@/lib";
+import { createMetadata, restaurantSchema } from "@/lib/seo";
 import "./globals.css";
 
-export const metadata: Metadata = {
-  title: `${siteConfig.name} | Premium Authentic Indian Cuisine`,
-  description: siteConfig.description,
-};
+const headingFont = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-heading",
+  weight: ["600", "700", "800"],
+  display: "swap",
+});
 
-const navLinks = [
-  ["Menu", "#menu"],
-  ["About", "#about"],
-  ["Catering", "#catering"],
-  ["Testimonials", "#testimonials"],
-];
+const bodyFont = Poppins({
+  subsets: ["latin"],
+  variable: "--font-body",
+  weight: ["400", "500", "600", "700", "800", "900"],
+  display: "swap",
+});
+
+export const metadata: Metadata = createMetadata({
+  title: "Virundhaalaya | Authentic Tamil Homemade Food in Coimbatore",
+  description:
+    "Traditional Tamil homemade food, daily meals, cloud kitchen delivery, and premium catering for weddings, family events, and corporate lunches in Coimbatore.",
+});
+
+export const viewport: Viewport = {
+  themeColor: "#7A1F1F",
+  width: "device-width",
+  initialScale: 1,
+};
 
 export default function RootLayout({
   children,
@@ -20,42 +40,23 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html className={`${headingFont.variable} ${bodyFont.variable}`} lang="en-IN">
       <body>
-        <header className="navbar">
-          <a className="brand" href="#home" aria-label={`${siteConfig.name} home`}>
-            <span className="brand-mark">V</span>
-            <span>
-              <strong>{siteConfig.name}</strong>
-              <small>Authentic Indian Cuisine</small>
-            </span>
+        <ThemeRegistry>
+          <JsonLd data={restaurantSchema} />
+          <PremiumNavbar />
+          {children}
+          <Footer />
+          <a
+            aria-label="Order on WhatsApp"
+            className="floating-whatsapp"
+            href={`https://wa.me/${businessConfig.whatsapp}`}
+            rel="noreferrer"
+            target="_blank"
+          >
+            WhatsApp
           </a>
-          <nav aria-label="Primary navigation">
-            {navLinks.map(([label, href]) => (
-              <a key={label} href={href}>
-                {label}
-              </a>
-            ))}
-          </nav>
-          <a className="nav-cta" href={`tel:${businessConfig.phone}`}>
-            Reserve
-          </a>
-        </header>
-        {children}
-        <footer className="footer">
-          <div className="footer-brand">
-            <span className="brand-mark">V</span>
-            <div>
-              <strong>{siteConfig.name}</strong>
-              <p>{siteConfig.tagline}</p>
-            </div>
-          </div>
-          <div className="footer-links">
-            <a href={`mailto:${businessConfig.email}`}>{businessConfig.email}</a>
-            <a href={`tel:${businessConfig.phone}`}>{businessConfig.phone}</a>
-            <span>{businessConfig.address.city}, {businessConfig.address.region}</span>
-          </div>
-        </footer>
+        </ThemeRegistry>
       </body>
     </html>
   );
