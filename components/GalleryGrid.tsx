@@ -28,7 +28,7 @@ export function GalleryGrid({ preview = false }: { preview?: boolean }) {
             component={motion.button}
             initial={{ opacity: 0, y: 34 }}
             whileInView={{ opacity: 1, y: 0 }}
-            whileHover={{ y: -5 }}
+            whilehover={{ y: -5 }}
             viewport={{ once: true, amount: 0.18 }}
             transition={{ duration: 0.55, delay: Math.min(index * 0.04, 0.22) }}
             onClick={() => setSelected(item)}

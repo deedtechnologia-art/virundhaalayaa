@@ -23,8 +23,8 @@ export const siteConfig = {
 } as const;
 
 export const businessConfig = {
-  phone: "+91 98765 43210",
-  whatsapp: "919876543210",
+  phone: "+91 8695383239",
+  whatsapp: "8695383239",
   email: "hello@virundhaalaya.com",
   address: {
     street: "Peelamedu",
@@ -54,6 +54,6 @@ export const navLinks = [
   { label: "About", href: "/about" },
   { label: "Catering", href: "/catering" },
   { label: "Gallery", href: "/gallery" },
-  { label: "Reviews", href: "/testimonials" },
+  { label: "Reviews", href: "/reviews" },
   { label: "Contact", href: "/contact" },
 ] as const;

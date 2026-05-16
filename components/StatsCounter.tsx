@@ -46,7 +46,7 @@ export function StatsCounter() {
         <Grid key={stat.label} size={{ xs: 6, md: 3 }}>
           <Box
             component={motion.div}
-            whileHover={{ y: -6 }}
+            whilehover={{ y: -6 }}
             sx={{
               bgcolor: "rgba(255,252,245,0.88)",
               border: "1px solid rgba(62,39,35,0.1)",
