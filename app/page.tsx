@@ -528,7 +528,14 @@ export default function HomePage() {
             spacing={{ xs: 3, sm: 3.5, md: 6, lg: 8 }}
             sx={{ alignItems: "center" }}
           >
-            <Grid size={{ xs: 12, lg: 6 }} sx={{ order: { xs: 2, lg: 1 } }}>
+            <Grid
+              size={{ xs: 12, lg: 6 }}
+              sx={{
+                display: { xs: "flex", lg: "block" },
+                justifyContent: { xs: "center", lg: "initial" },
+                order: { xs: 2, lg: 1 },
+              }}
+            >
               <SectionReveal>
                 <Box
                   sx={{
@@ -540,11 +547,14 @@ export default function HomePage() {
                     border: "1px solid rgba(255,248,237,0.14)",
                     borderRadius: "24px",
                     boxShadow: "0 34px 90px rgba(0,0,0,0.34)",
+                    maxWidth: { xs: "calc(100vw - 48px)", sm: "100%" },
                     minHeight: { xs: 220, sm: 360, md: 420, lg: 520 },
                     maxHeight: { md: 520, lg: "none" },
                     mb: { xs: 2, sm: 0 },
+                    mx: { xs: "auto", lg: 0 },
                     overflow: "hidden",
                     position: "relative",
+                    width: "100%",
                     "&::after": {
                       background:
                         "linear-gradient(180deg, rgba(42,23,20,0.02) 42%, rgba(42,23,20,0.34) 100%)",
@@ -557,6 +567,7 @@ export default function HomePage() {
                 >
                   <FloatingCoverImage
                     alt="Family cooking traditional Tamil food"
+                    objectPosition={{ xs: "48% center", sm: "center center" }}
                     sizes="(max-width: 900px) 100vw, 50vw"
                     src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1200&q=85"
                   />
@@ -652,17 +663,7 @@ export default function HomePage() {
         <StatsCounter />
       </Box>
 
-      <Box
-        component="section"
-        className="section-tight"
-        sx={{ bgcolor: "rgba(245,230,204,0.38)" }}
-      >
-        <SectionIntro
-          eyebrow="Guest Notes"
-          title="Loved by families, teams, and celebration hosts"
-        />
-        <TestimonialCards carousel />
-      </Box>
+      <TestimonialCards carousel />
 
       <SubscriptionPlans />
 
