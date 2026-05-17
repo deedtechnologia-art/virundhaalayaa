@@ -7,6 +7,7 @@ export type MenuItem = {
   description: string;
   kind: FoodKind;
   image: string;
+  price?: string;
   popular?: boolean;
 };
 
@@ -350,10 +351,10 @@ export const menuItems: MenuItem[] = [
 ];
 
 export const stats = [
-  { value: 12000, suffix: "+", label: "Orders Served" },
-  { value: 8500, suffix: "+", label: "Happy Customers" },
-  { value: 420, suffix: "+", label: "Catering Events" },
-  { value: 18, suffix: "+", label: "Years of Tradition" },
+  { value: 7000, suffix: "+", label: "Deliveries Completed" },
+  { value: 5000, suffix: "+", label: "Happy Customers" },
+  { value: 50, suffix: "+", label: "Catering Events" },
+  { value: 7, suffix: "+", label: "Years of Tradition" },
 ] as const;
 
 export const testimonials = [

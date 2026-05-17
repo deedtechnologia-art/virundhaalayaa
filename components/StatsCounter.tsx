@@ -24,13 +24,25 @@ function CounterNumber({ value, suffix }: { value: number; suffix: string }) {
     <Typography
       ref={ref}
       component={motion.span}
-      style={{ display: "block" }}
       sx={{
         color: "primary.main",
+        display: "block",
         fontFamily: "var(--font-heading)",
-        fontSize: { xs: "2.6rem", md: "4rem" },
+        fontSize: {
+          xs: "clamp(1.5rem, 7.2vw, 2.2rem)",
+          sm: "2.45rem",
+          md: "3.25rem",
+          lg: "4rem",
+        },
         fontWeight: 800,
+        letterSpacing: 0,
         lineHeight: 1,
+        maxWidth: "100%",
+        minWidth: 0,
+        overflow: "hidden",
+        textAlign: "center",
+        textOverflow: "clip",
+        whiteSpace: "nowrap",
       }}
     >
       {count.toLocaleString("en-IN")}
@@ -41,23 +53,44 @@ function CounterNumber({ value, suffix }: { value: number; suffix: string }) {
 
 export function StatsCounter() {
   return (
-    <Grid container spacing={2.5}>
+    <Grid container spacing={{ xs: 1.4, sm: 2, md: 2.5 }}>
       {stats.map((stat) => (
         <Grid key={stat.label} size={{ xs: 6, md: 3 }}>
           <Box
             component={motion.div}
-            whilehover={{ y: -6 }}
+            whileHover={{ y: -6 }}
             sx={{
-              bgcolor: "rgba(255,252,245,0.88)",
+              alignItems: "center",
+              background:
+                "linear-gradient(145deg, rgba(255,252,245,0.94), rgba(250,244,232,0.88))",
               border: "1px solid rgba(62,39,35,0.1)",
-              borderRadius: 2,
-              boxShadow: "0 24px 70px rgba(62,39,35,0.08)",
+              borderRadius: { xs: "18px", md: 2 },
+              boxShadow: {
+                xs: "0 14px 34px rgba(62,39,35,0.07)",
+                md: "0 24px 70px rgba(62,39,35,0.08)",
+              },
+              display: "flex",
+              flexDirection: "column",
               height: "100%",
-              p: { xs: 2.5, md: 3.5 },
+              justifyContent: "center",
+              minHeight: { xs: 124, sm: 142, md: 170 },
+              minWidth: 0,
+              overflow: "hidden",
+              p: { xs: 1.45, sm: 2, md: 3.5 },
+              textAlign: "center",
             }}
           >
             <CounterNumber value={stat.value} suffix={stat.suffix} />
-            <Typography sx={{ color: "text.secondary", fontWeight: 800, mt: 1 }}>
+            <Typography
+              sx={{
+                color: "text.secondary",
+                fontSize: { xs: "0.76rem", sm: "0.88rem", md: "1rem" },
+                fontWeight: 800,
+                lineHeight: 1.35,
+                mt: { xs: 0.9, md: 1 },
+                px: { xs: 0.2, md: 0 },
+              }}
+            >
               {stat.label}
             </Typography>
           </Box>

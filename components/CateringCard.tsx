@@ -18,7 +18,7 @@ export function CateringCard({
       component={motion.article}
       initial={{ opacity: 0, y: 28 }}
       whileInView={{ opacity: 1, y: 0 }}
-      whilehover={{ y: -8 }}
+      whileHover={{ y: -8 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.55, delay: Math.min(index * 0.06, 0.24) }}
       sx={{

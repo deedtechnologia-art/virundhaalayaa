@@ -100,7 +100,7 @@ export function PremiumNavbar() {
         >
           <Box
             component={motion.div}
-            whilehover={{ rotate: -4, scale: 1.04 }}
+            whileHover={{ rotate: -4, scale: 1.04 }}
             sx={{
               alignItems: "center",
               background:

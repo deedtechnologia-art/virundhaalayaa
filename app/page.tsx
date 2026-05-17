@@ -3,10 +3,10 @@ import { AnimatedButton } from "@/components/AnimatedButton";
 import { AnimatedText } from "@/components/AnimatedText";
 import { FoodCard } from "@/components/FoodCard";
 import { FloatingCoverImage } from "@/components/FloatingCoverImage";
-import { GalleryGrid } from "@/components/GalleryGrid";
 import { MotionBox, ParallaxBox, SectionReveal } from "@/components/Motion";
 import { SectionIntro } from "@/components/SectionIntro";
 import { StatsCounter } from "@/components/StatsCounter";
+import { SubscriptionPlans } from "@/components/SubscriptionPlans";
 import { TestimonialCards } from "@/components/TestimonialCards";
 import {
   businessConfig,
@@ -27,13 +27,14 @@ export default function HomePage() {
       <Box
         component="section"
         sx={{
-          minHeight: { xs: "auto", md: "calc(100vh - 84px)" },
+          minHeight: { xs: "calc(100svh - 74px)", md: "calc(100vh - 84px)" },
           overflow: "hidden",
           position: "relative",
         }}
       >
         <FloatingCoverImage
           alt="Tamil homemade feast with biriyani and traditional dishes"
+          objectPosition={{ xs: "58% center", sm: "center center" }}
           priority
           sizes="100vw"
           src={heroImage}
@@ -41,7 +42,10 @@ export default function HomePage() {
         <Box
           sx={{
             background:
-              "linear-gradient(90deg, rgba(42,23,20,0.88), rgba(122,31,31,0.58), rgba(42,23,20,0.18))",
+              {
+                xs: "linear-gradient(180deg, rgba(42,23,20,0.86) 0%, rgba(122,31,31,0.62) 54%, rgba(42,23,20,0.34) 100%)",
+                md: "linear-gradient(90deg, rgba(42,23,20,0.88), rgba(122,31,31,0.58), rgba(42,23,20,0.18))",
+              },
             inset: 0,
             position: "absolute",
           }}
@@ -55,9 +59,9 @@ export default function HomePage() {
               lg: "minmax(0, 0.95fr) minmax(360px, 0.55fr)",
             },
             gap: 5,
-            minHeight: { xs: "auto", md: "calc(100vh - 84px)" },
+            minHeight: { xs: "calc(100svh - 74px)", md: "calc(100vh - 84px)" },
             position: "relative",
-            py: { xs: 8, md: 12 },
+            py: { xs: 6.5, sm: 8, md: 12 },
           }}
         >
           <Stack
@@ -65,11 +69,12 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 36 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-            spacing={3}
+            spacing={{ xs: 2.2, md: 3 }}
             sx={{
               alignSelf: "center",
               color: "background.default",
               maxWidth: 890,
+              pb: { xs: 4, sm: 0 },
             }}
           >
             <Typography className="eyebrow" sx={{ color: "warning.main" }}>
@@ -80,14 +85,21 @@ export default function HomePage() {
               immediate
               text="Taste of Amma's Kitchen"
               variant="h1"
-              sx={{ fontSize: { xs: "3.7rem", sm: "5rem", md: "7.2rem" } }}
+              sx={{
+                fontSize: {
+                  xs: "clamp(2.8rem, 14vw, 3.7rem)",
+                  sm: "5rem",
+                  md: "7.2rem",
+                },
+                maxWidth: { xs: 520, md: 900 },
+              }}
             />
             <Typography
               sx={{
                 color: "rgba(255,248,237,0.82)",
-                fontSize: { xs: "1rem", md: "1.22rem" },
-                lineHeight: 1.85,
-                maxWidth: 680,
+                fontSize: { xs: "0.98rem", sm: "1.05rem", md: "1.22rem" },
+                lineHeight: { xs: 1.72, md: 1.85 },
+                maxWidth: { xs: 560, md: 680 },
               }}
             >
               Tradition served fresh from a hygienic Coimbatore kitchen, with
@@ -97,7 +109,13 @@ export default function HomePage() {
             <Stack
               direction={{ xs: "column", sm: "row" }}
               spacing={1.5}
-              sx={{ mt: 1 }}
+              sx={{
+                mt: { xs: 0.5, md: 1 },
+                width: { xs: "100%", sm: "auto" },
+                "& .MuiButton-root": {
+                  width: { xs: "100%", sm: "auto" },
+                },
+              }}
             >
               <AnimatedButton href="/menu" variant="contained" glow>
                 View Menu
@@ -495,26 +513,46 @@ export default function HomePage() {
         component="section"
         className="section"
         sx={{
-          bgcolor: "#2A1714",
+          background:
+            "radial-gradient(circle at 12% 18%, rgba(212,160,23,0.08), transparent 28%), linear-gradient(135deg, #2A1714 0%, #351914 56%, #21110f 100%)",
           color: "background.default",
           overflow: "hidden",
+          pb: { xs: 15, sm: 12, md: 12 },
+          pt: { xs: 6.5, sm: 7.5, md: 12 },
           position: "relative",
         }}
       >
-        <Container maxWidth="xl" sx={{ position: "relative" }}>
+        <Container maxWidth="xl" sx={{ position: "relative", zIndex: 1 }}>
           <Grid
             container
-            spacing={{ xs: 4, md: 8 }}
+            spacing={{ xs: 3, sm: 3.5, md: 6, lg: 8 }}
             sx={{ alignItems: "center" }}
           >
-            <Grid size={{ xs: 12, md: 6 }}>
+            <Grid size={{ xs: 12, lg: 6 }} sx={{ order: { xs: 2, lg: 1 } }}>
               <SectionReveal>
                 <Box
                   sx={{
-                    borderRadius: 2,
-                    minHeight: { xs: 380, md: 560 },
+                    aspectRatio: {
+                      xs: "4 / 3",
+                      sm: "16 / 10",
+                      lg: "1 / 1.02",
+                    },
+                    border: "1px solid rgba(255,248,237,0.14)",
+                    borderRadius: "24px",
+                    boxShadow: "0 34px 90px rgba(0,0,0,0.34)",
+                    minHeight: { xs: 220, sm: 360, md: 420, lg: 520 },
+                    maxHeight: { md: 520, lg: "none" },
+                    mb: { xs: 2, sm: 0 },
                     overflow: "hidden",
                     position: "relative",
+                    "&::after": {
+                      background:
+                        "linear-gradient(180deg, rgba(42,23,20,0.02) 42%, rgba(42,23,20,0.34) 100%)",
+                      content: '""',
+                      inset: 0,
+                      pointerEvents: "none",
+                      position: "absolute",
+                    },
                   }}
                 >
                   <FloatingCoverImage
@@ -525,23 +563,40 @@ export default function HomePage() {
                 </Box>
               </SectionReveal>
             </Grid>
-            <Grid size={{ xs: 12, md: 6 }}>
-              <SectionReveal delay={0.12}>
+            <Grid size={{ xs: 12, lg: 6 }} sx={{ order: { xs: 1, lg: 2 } }}>
+              <SectionReveal
+                delay={0.12}
+                sx={{
+                  maxWidth: { xs: "100%", md: 760, lg: 680 },
+                  mx: { xs: 0, md: "auto" },
+                }}
+              >
                 <Typography className="eyebrow" sx={{ color: "warning.main" }}>
                   Our Story
                 </Typography>
                 <Typography
                   variant="h2"
-                  sx={{ fontSize: { xs: "2.4rem", md: "4.6rem" } }}
+                  sx={{
+                    color: "#FFF8ED",
+                    fontSize: {
+                      xs: "2rem",
+                      sm: "3.2rem",
+                      md: "3.55rem",
+                      lg: "4.6rem",
+                    },
+                    lineHeight: { xs: 1.06, md: 1.02 },
+                    maxWidth: 720,
+                  }}
                 >
                   Every meal feels like home because it begins like one.
                 </Typography>
                 <Typography
                   sx={{
                     color: "rgba(255,248,237,0.76)",
-                    fontSize: "1.08rem",
-                    lineHeight: 1.9,
-                    mt: 3,
+                    fontSize: { xs: "0.96rem", sm: "1rem", md: "1.08rem" },
+                    lineHeight: { xs: 1.7, sm: 1.78, md: 1.9 },
+                    mt: { xs: 2, sm: 2.4, md: 3 },
+                    maxWidth: 660,
                   }}
                 >
                   Virundhaalaya grew from a family kitchen where recipes were
@@ -550,10 +605,14 @@ export default function HomePage() {
                   not just jaggery; it is the feeling of being served by someone
                   who wants you to eat well.
                 </Typography>
-                <Stack
-                  direction="row"
-                  spacing={1}
-                  sx={{ flexWrap: "wrap", mt: 3 }}
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexWrap: "wrap",
+                    gap: { xs: 0.8, sm: 1 },
+                    mt: { xs: 2.2, sm: 2.6, md: 3 },
+                    maxWidth: 540,
+                  }}
                 >
                   {[
                     "Stone-ground masala",
@@ -564,13 +623,25 @@ export default function HomePage() {
                       key={label}
                       label={label}
                       sx={{
-                        bgcolor: "rgba(255,248,237,0.1)",
+                        backdropFilter: "blur(10px)",
+                        bgcolor: "rgba(255,248,237,0.12)",
+                        border: "1px solid rgba(255,248,237,0.12)",
                         color: "background.default",
+                        fontSize: { xs: "0.8rem", sm: "0.92rem" },
                         fontWeight: 800,
+                        height: { xs: 30, sm: 34 },
+                        maxWidth: "100%",
+                        px: { xs: 0.15, sm: 0.4 },
+                        "& .MuiChip-label": {
+                          overflow: "hidden",
+                          px: { xs: 1.4, sm: 1.6 },
+                          textOverflow: "ellipsis",
+                          whiteSpace: "nowrap",
+                        },
                       }}
                     />
                   ))}
-                </Stack>
+                </Box>
               </SectionReveal>
             </Grid>
           </Grid>
@@ -593,14 +664,7 @@ export default function HomePage() {
         <TestimonialCards carousel />
       </Box>
 
-      <Box component="section" className="section">
-        <SectionIntro
-          eyebrow="Behind the Scenes"
-          title="A kitchen you can feel before the first bite"
-          copy="Traditional vessels, fresh ingredients, team prep, and banana leaf serving come together as one visual story."
-        />
-        <GalleryGrid preview />
-      </Box>
+      <SubscriptionPlans />
 
       <Box
         component="section"

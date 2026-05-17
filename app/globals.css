@@ -67,25 +67,51 @@ img {
 
 .floating-whatsapp {
   align-items: center;
-  background: #1fa855;
+  background: linear-gradient(135deg, #1f9f55, #168a47);
   border-radius: 999px;
-  bottom: 22px;
-  box-shadow: 0 18px 44px rgba(31, 168, 85, 0.32);
+  bottom: 20px;
+  box-shadow: 0 14px 34px rgba(22, 138, 71, 0.24);
   color: #fff8ed;
   display: flex;
+  gap: 8px;
   font-family: var(--font-body);
-  font-size: 0.86rem;
+  font-size: 0.82rem;
   font-weight: 900;
-  min-height: 46px;
-  padding: 0 18px;
+  line-height: 1;
+  min-height: 40px;
+  padding: 0 15px;
   position: fixed;
-  right: 22px;
+  right: 20px;
   text-decoration: none;
+  transition: box-shadow 220ms ease, transform 220ms ease;
   z-index: 80;
 }
 
+.floating-whatsapp__icon {
+  fill: currentColor;
+  height: 18px;
+  width: 18px;
+}
+
 .floating-whatsapp:hover {
-  transform: translateY(-3px);
+  box-shadow: 0 18px 42px rgba(22, 138, 71, 0.3);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+  .floating-whatsapp {
+    bottom: max(12px, env(safe-area-inset-bottom));
+    font-size: 0.76rem;
+    gap: 6px;
+    min-height: 36px;
+    padding: 0 12px;
+    right: 14px;
+  }
+
+  .floating-whatsapp__icon {
+    height: 16px;
+    width: 16px;
+  }
 }
 
 @keyframes marquee {

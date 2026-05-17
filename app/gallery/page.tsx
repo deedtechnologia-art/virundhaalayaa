@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Box } from "@mui/material";
-import { GalleryGrid } from "@/components/GalleryGrid";
+import { MediaGallery } from "@/components/MediaGallery";
 import { PageHero } from "@/components/PageHero";
 import { SectionIntro } from "@/components/SectionIntro";
 import { createMetadata } from "@/lib/seo";
@@ -27,7 +27,7 @@ export default function GalleryPage() {
           title="A masonry story of homemade Tamil food"
           copy="Tap any image to open a full-screen lightbox with a closer view."
         />
-        <GalleryGrid />
+        <MediaGallery />
       </Box>
     </main>
   );

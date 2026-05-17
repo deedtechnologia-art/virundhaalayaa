@@ -46,7 +46,7 @@ function ReviewCard({
       component={motion.figure}
       initial={{ opacity: 0, y: 28 }}
       whileInView={{ opacity: 1, y: 0 }}
-      whilehover={{ y: -7 }}
+      whileHover={{ y: -7 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.55, delay: Math.min(index * 0.08, 0.28) }}
       sx={{
@@ -87,7 +87,7 @@ export function VideoTestimonials() {
         <Grid key={title} size={{ xs: 12, md: 4 }}>
           <Box
             component={motion.div}
-            whilehover={{ y: -6 }}
+            whileHover={{ y: -6 }}
             sx={{
               alignItems: "center",
               background:

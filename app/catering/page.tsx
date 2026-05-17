@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Box, Grid, Stack, Typography } from "@mui/material";
 import { AnimatedButton } from "@/components/AnimatedButton";
 import { CateringCard } from "@/components/CateringCard";
-import { GalleryGrid } from "@/components/GalleryGrid";
+import { MediaGallery } from "@/components/MediaGallery";
 import { PageHero } from "@/components/PageHero";
 import { SectionReveal } from "@/components/Motion";
 import { SectionIntro } from "@/components/SectionIntro";
@@ -84,7 +84,7 @@ export default function CateringPage() {
           eyebrow="Catering Gallery"
           title="Food, flow, and serving moments"
         />
-        <GalleryGrid preview />
+        <MediaGallery preview />
       </Box>
 
       <Box component="section" className="section-tight">

@@ -8,6 +8,7 @@ type FloatingCoverImageProps = {
   alt: string;
   delay?: number;
   duration?: number;
+  objectPosition?: string | Record<string, string>;
   priority?: boolean;
   sizes: string;
   src: string;
@@ -17,6 +18,7 @@ export function FloatingCoverImage({
   alt,
   delay = 0,
   duration = 7.5,
+  objectPosition = "center",
   priority = false,
   sizes,
   src,
@@ -38,6 +40,9 @@ export function FloatingCoverImage({
       sx={{
         inset: "-3%",
         position: "absolute",
+        "& img": {
+          objectPosition,
+        },
       }}
     >
       <Image

@@ -66,7 +66,9 @@ export function FoodCard({ item, compact = false }: { item: MenuItem; compact?: 
           <Typography variant="h5" component="h3" sx={{ color: "primary.main", fontSize: "1.35rem" }}>
             {item.name}
           </Typography>
-          <Typography sx={{ color: "secondary.main", fontWeight: 900 }}>{item.price}</Typography>
+          {item.price ? (
+            <Typography sx={{ color: "secondary.main", fontWeight: 900 }}>{item.price}</Typography>
+          ) : null}
         </Stack>
         <Typography sx={{ color: "text.secondary", lineHeight: 1.7, minHeight: compact ? 0 : 56, mt: 1 }}>
           {item.description}
