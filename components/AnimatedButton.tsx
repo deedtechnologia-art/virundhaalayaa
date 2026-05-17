@@ -27,8 +27,8 @@ export function AnimatedButton({
   return (
     <Button
       component={motion.button}
-      whileHover={{ y: -3, scale: 1.015 }}
-      whileTap={{ scale: 0.96 }}
+      whilehover={{ y: -3, scale: 1.015 }}
+      whiletap={{ scale: 0.96 }}
       endIcon={whatsapp ? <WhatsAppIcon /> : <ArrowForwardRoundedIcon />}
       sx={{
         overflow: "hidden",

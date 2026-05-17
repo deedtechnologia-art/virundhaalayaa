@@ -12,7 +12,7 @@ export type MenuItem = {
 };
 
 export const heroImage =
-  "https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?auto=format&fit=crop&w=1800&q=85";
+  "/images/hero/virundhaalaya-hero.webp";
 
 export const trustHighlights = [
   {

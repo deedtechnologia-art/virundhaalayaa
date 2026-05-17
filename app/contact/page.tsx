@@ -6,6 +6,8 @@ import { SectionReveal } from "@/components/Motion";
 import { businessConfig } from "@/lib";
 import { createMetadata } from "@/lib/seo";
 
+const directionsUrl = "https://maps.app.goo.gl/67Vxn9Fe3723NCFX6?g_st=awb";
+
 export const metadata: Metadata = createMetadata({
   title: "Contact | Order Tamil Homemade Food in Coimbatore",
   description:
@@ -105,7 +107,13 @@ export default function ContactPage() {
                     <Typography sx={{ color: "rgba(255,248,237,0.78)", lineHeight: 1.75, mt: 1 }}>
                       Embedded map placeholder for the live business address.
                     </Typography>
-                    <Button variant="contained" sx={{ mt: 2 }}>
+                    <Button
+                      href={directionsUrl}
+                      rel="noreferrer"
+                      target="_blank"
+                      variant="contained"
+                      sx={{ mt: 2 }}
+                    >
                       Open Directions
                     </Button>
                   </Box>
