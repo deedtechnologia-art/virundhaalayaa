@@ -9,18 +9,18 @@ import { createMetadata } from "@/lib/seo";
 export const metadata: Metadata = createMetadata({
   title: "Menu | Virundhaalaya Tamil Homemade Food",
   description:
-    "Explore Virundhaalaya's homemade Tamil food menu with breakfast, lunch, dinner, snacks, sweets, biriyani, meals, and catering specials in Coimbatore.",
+    "Explore Virundhaalaya's homemade Tamil food menu with breakfast, lunch, dinner, snacks and catering specials in Coimbatore.",
   path: "/menu",
 });
 
-const categories = ["Breakfast", "Lunch", "Dinner", "Snacks", "Sweets", "Catering Specials"] as const;
+const categories = ["Breakfast", "Lunch", "Dinner", "Snacks", "Catering Specials"] as const;
 
 export default function MenuPage() {
   return (
     <main>
       <PageHero
         eyebrow="Premium Homemade Menu"
-        title="Traditional meals, tiffin, sweets, and family feasts"
+        title="Traditional meals, tiffin, and family/corporate feasts"
         copy="Around fifty Tamil kitchen favorites, organized for everyday cravings and memorable occasions."
         image="https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?auto=format&fit=crop&w=1800&q=85"
         primaryLabel="Order on WhatsApp"

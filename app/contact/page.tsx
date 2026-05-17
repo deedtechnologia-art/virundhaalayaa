@@ -18,8 +18,8 @@ export default function ContactPage() {
     <main>
       <PageHero
         eyebrow="Contact"
-        title="Order meals or plan your next family feast"
-        copy="Send a message for daily meals, biriyani batches, traditional sweets, event menus, or catering availability."
+        title="Order meals or plan your next Family/Corporate Event with us"
+        copy="Send a message for daily meals, biriyani batches, event menus, or catering availability."
         image="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?auto=format&fit=crop&w=1800&q=85"
       />
       <Box component="section" className="section">

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Playfair_Display, Poppins } from "next/font/google";
+import { Noto_Sans_Tamil, Noto_Serif_Tamil, Playfair_Display, Poppins } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { JsonLd } from "@/components/JsonLd";
 import { PremiumNavbar } from "@/components/PremiumNavbar";
@@ -22,6 +22,20 @@ const bodyFont = Poppins({
   display: "swap",
 });
 
+const tamilSerifFont = Noto_Serif_Tamil({
+  subsets: ["tamil"],
+  variable: "--font-tamil-serif",
+  weight: ["400", "500", "600"],
+  display: "swap",
+});
+
+const tamilSansFont = Noto_Sans_Tamil({
+  subsets: ["tamil"],
+  variable: "--font-tamil-sans",
+  weight: ["400", "500", "600"],
+  display: "swap",
+});
+
 export const metadata: Metadata = createMetadata({
   title: "Virundhaalaya | Authentic Tamil Homemade Food in Coimbatore",
   description:
@@ -40,7 +54,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html className={`${headingFont.variable} ${bodyFont.variable}`} lang="en-IN">
+    <html className={`${headingFont.variable} ${bodyFont.variable} ${tamilSerifFont.variable} ${tamilSansFont.variable}`} lang="ta-IN">
       <body>
         <ThemeRegistry>
           <JsonLd data={restaurantSchema} />

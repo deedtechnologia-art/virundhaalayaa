@@ -8,7 +8,13 @@ import { MotionBox, ParallaxBox, SectionReveal } from "@/components/Motion";
 import { SectionIntro } from "@/components/SectionIntro";
 import { StatsCounter } from "@/components/StatsCounter";
 import { TestimonialCards } from "@/components/TestimonialCards";
-import { businessConfig, heroImage, menuItems, popularFoods, trustHighlights } from "@/lib";
+import {
+  businessConfig,
+  heroImage,
+  menuItems,
+  popularFoods,
+  trustHighlights,
+} from "@/lib";
 
 export default function HomePage() {
   const popularItems = popularFoods
@@ -44,9 +50,12 @@ export default function HomePage() {
           maxWidth="xl"
           sx={{
             display: "grid",
-            gridTemplateColumns: { xs: "1fr", lg: "minmax(0, 0.95fr) minmax(360px, 0.55fr)" },
+            gridTemplateColumns: {
+              xs: "1fr",
+              lg: "minmax(0, 0.95fr) minmax(360px, 0.55fr)",
+            },
             gap: 5,
-            minHeight: { xs: 680, md: "calc(100vh - 84px)" },
+            minHeight: { xs: "auto", md: "calc(100vh - 84px)" },
             position: "relative",
             py: { xs: 8, md: 12 },
           }}
@@ -57,7 +66,11 @@ export default function HomePage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
             spacing={3}
-            sx={{ alignSelf: "center", color: "background.default", maxWidth: 890 }}
+            sx={{
+              alignSelf: "center",
+              color: "background.default",
+              maxWidth: 890,
+            }}
           >
             <Typography className="eyebrow" sx={{ color: "warning.main" }}>
               Authentic Tamil Homemade Foods
@@ -81,7 +94,11 @@ export default function HomePage() {
               slow-ground masalas, banana leaf memories, and meals that feel
               like home.
             </Typography>
-            <Stack direction={{ xs: "column", sm: "row" }} spacing={1.5} sx={{ mt: 1 }}>
+            <Stack
+              direction={{ xs: "column", sm: "row" }}
+              spacing={1.5}
+              sx={{ mt: 1 }}
+            >
               <AnimatedButton href="/menu" variant="contained" glow>
                 View Menu
               </AnimatedButton>
@@ -90,14 +107,20 @@ export default function HomePage() {
                 target="_blank"
                 variant="outlined"
                 whatsapp
-                sx={{ borderColor: "rgba(255,248,237,0.45)", color: "background.default" }}
+                sx={{
+                  borderColor: "rgba(255,248,237,0.45)",
+                  color: "background.default",
+                }}
               >
                 Order Now
               </AnimatedButton>
               <AnimatedButton
                 href="/catering"
                 variant="outlined"
-                sx={{ borderColor: "rgba(255,248,237,0.45)", color: "background.default" }}
+                sx={{
+                  borderColor: "rgba(255,248,237,0.45)",
+                  color: "background.default",
+                }}
               >
                 Book Catering
               </AnimatedButton>
@@ -106,7 +129,13 @@ export default function HomePage() {
 
           <ParallaxBox
             strength={-90}
-            sx={{ alignSelf: "center", display: { xs: "none", lg: "block" }, position: "relative" }}
+            sx={{
+              alignSelf: "center",
+              mx: { xs: "auto", lg: 0 },
+              maxWidth: { xs: 340, sm: 420, md: 400, lg: "none" },
+              position: "relative",
+              width: "100%",
+            }}
           >
             <Box
               sx={{
@@ -115,26 +144,169 @@ export default function HomePage() {
                 border: "1px solid rgba(255,248,237,0.32)",
                 borderRadius: 2,
                 boxShadow: "0 28px 90px rgba(0,0,0,0.24)",
-                p: 3,
+                p: { xs: 1.5, md: 2.5 },
+                textAlign: "center",
               }}
             >
-              <Typography className="eyebrow">Today&apos;s Kitchen</Typography>
-              <Typography variant="h4" color="primary.main">
-                Fresh meals begin at sunrise
+              {/* ── Overline label ────────────────────────────── */}
+              {/* <Typography
+                component="p"
+                sx={{
+                  color: "rgba(122,31,31,0.55)",
+                  fontFamily: "var(--font-tamil-sans)",
+                  fontSize: { xs: "0.62rem", md: "0.65rem" },
+                  fontWeight: 600,
+                  letterSpacing: "0.18em",
+                  mb: 1,
+                  textTransform: "uppercase",
+                }}
+              >
+                திருவள்ளுவர் · திருக்குறள்
+              </Typography> */}
+
+              {/* ── Section title ─────────────────────────────── */}
+              <Typography
+                component="h2"
+                sx={{
+                  color: "primary.main",
+                  fontFamily: "var(--font-tamil-serif)",
+                  fontSize: { xs: "0.95rem", sm: "1.35rem", md: "1.45rem" },
+                  fontWeight: 700,
+                  letterSpacing: 0,
+                  lineHeight: 1.4,
+                  mb: { xs: 1, sm: 1.5 },
+                }}
+              >
+                உணவே மருந்து
               </Typography>
-              <Typography sx={{ color: "text.secondary", lineHeight: 1.75, mt: 1.5 }}>
-                Idli batter, sambar, biriyani masala, and festival sweets are
-                prepared in careful daily batches.
+
+              {/* ── Gold rule divider (centred) ───────────────── */}
+              <Box
+                sx={{
+                  background:
+                    "linear-gradient(90deg, transparent, rgba(212,160,23,0.9), transparent)",
+                  borderRadius: 1,
+                  height: "1.5px",
+                  mb: { xs: 1.5, sm: 2.5 },
+                  mx: "auto",
+                  width: { xs: "56px", sm: "80px" },
+                }}
+              />
+
+              {/* ── Decorative open-quote ─────────────────────── */}
+              <Typography
+                aria-hidden="true"
+                component="span"
+                sx={{
+                  color: "rgba(122,31,31,0.18)",
+                  display: "block",
+                  fontFamily: "Georgia, serif",
+                  fontSize: { xs: "2rem", sm: "3.5rem" },
+                  lineHeight: 0.6,
+                  mb: { xs: 0.5, sm: 1 },
+                  userSelect: "none",
+                }}
+              >
+                ❝
               </Typography>
+
+              {/* ── Thirukkural verses ────────────────────────── */}
+              <Box component="blockquote" sx={{ m: 0, p: 0 }}>
+                <Typography
+                  component="p"
+                  sx={{
+                    background:
+                      "linear-gradient(135deg, #7A1F1F 0%, #5a1515 100%)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    backgroundClip: "text",
+                    fontFamily: "var(--font-tamil-serif)",
+                    fontSize: { xs: "1rem", sm: "1.05rem", md: "1.1rem" },
+                    fontWeight: 700,
+                    letterSpacing: 0,
+                    lineHeight: 2,
+                    mb: 0,
+                  }}
+                >
+                  மருந்தென வேண்டாவாம் யாக்கைக்கு
+                </Typography>
+                <Typography
+                  component="p"
+                  sx={{
+                    background:
+                      "linear-gradient(135deg, #7A1F1F 0%, #5a1515 100%)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    backgroundClip: "text",
+                    fontFamily: "var(--font-tamil-serif)",
+                    fontSize: { xs: "1rem", sm: "1.05rem", md: "1.1rem" },
+                    fontWeight: 700,
+                    letterSpacing: 0,
+                    lineHeight: 2,
+                    mb: 2.5,
+                  }}
+                >
+                  அருந்தியது அற்றது போற்றி உணின்
+                </Typography>
+
+                {/* ── Author signature (centred) ────────────── */}
+                <Box
+                  sx={{
+                    alignItems: "center",
+                    borderTop: "1px solid rgba(62,39,35,0.12)",
+                    display: "flex",
+                    gap: 0.75,
+                    justifyContent: "center",
+                    pt: 1.5,
+                  }}
+                >
+                  <Box
+                    sx={{
+                      bgcolor: "rgba(212,160,23,0.22)",
+                      borderRadius: "50%",
+                      flexShrink: 0,
+                      height: { xs: 16, sm: 22 },
+                      width: { xs: 16, sm: 22 },
+                    }}
+                  />
+                  <Typography
+                    component="cite"
+                    sx={{
+                      color: "text.secondary",
+                      fontFamily: "var(--font-tamil-sans)",
+                      fontSize: { xs: "0.62rem", sm: "0.72rem", md: "0.76rem" },
+                      fontStyle: "normal",
+                      fontWeight: 500,
+                      letterSpacing: 0,
+                    }}
+                  >
+                    — திருவள்ளுவர்
+                  </Typography>
+                </Box>
+              </Box>
             </Box>
           </ParallaxBox>
         </Container>
       </Box>
 
-      <Box sx={{ bgcolor: "primary.main", color: "background.default", overflow: "hidden", py: 2 }}>
+      <Box
+        sx={{
+          bgcolor: "primary.main",
+          color: "background.default",
+          overflow: "hidden",
+          py: 2,
+        }}
+      >
         <Box className="marquee">
           {[...popularFoods, ...popularFoods].map((food, index) => (
-            <Typography key={`${food}-${index}`} sx={{ fontFamily: "var(--font-heading)", fontSize: { xs: "1.15rem", md: "1.6rem" }, fontWeight: 800 }}>
+            <Typography
+              key={`${food}-${index}`}
+              sx={{
+                fontFamily: "var(--font-heading)",
+                fontSize: { xs: "1.15rem", md: "1.6rem" },
+                fontWeight: 800,
+              }}
+            >
               {food}
             </Typography>
           ))}
@@ -142,50 +314,167 @@ export default function HomePage() {
       </Box>
 
       <Box component="section" className="section-tight">
-        <Grid container spacing={2.5}>
-          {trustHighlights.map((item, index) => (
-              <Grid key={item.title} size={{ xs: 12, sm: 6, lg: 2.4 }}>
-                <SectionReveal delay={index * 0.05}>
-                  <Box
-                    sx={{
-                      bgcolor: "rgba(255,252,245,0.88)",
-                      border: "1px solid rgba(62,39,35,0.1)",
-                      borderRadius: 2,
-                      boxShadow: "0 22px 64px rgba(62,39,35,0.07)",
-                      height: "100%",
-                      p: 3,
-                    }}
-                  >
-                    <Box
-                      sx={{
-                        alignItems: "center",
-                        bgcolor: "rgba(212,160,23,0.16)",
-                        borderRadius: "50%",
-                        color: "warning.main",
-                        display: "flex",
-                        fontFamily: "var(--font-heading)",
-                        fontSize: "1.35rem",
-                        fontWeight: 900,
-                        height: 42,
-                        justifyContent: "center",
-                        mb: 1.5,
-                        width: 42,
-                      }}
-                    >
-                      {index + 1}
-                    </Box>
-                    <Typography variant="h5" color="primary.main">
-                      {item.title}
-                    </Typography>
-                    <Typography sx={{ color: "text.secondary", lineHeight: 1.7, mt: 1 }}>
-                      {item.copy}
-                    </Typography>
-                  </Box>
-                </SectionReveal>
-              </Grid>
-            ))}
-        </Grid>
-      </Box>
+  <Grid container spacing={{ xs: 1.6, sm: 2.2, lg: 2.5 }}>
+    {trustHighlights.map((item, index) => (
+      <Grid
+        key={item.title}
+        size={{
+          xs: 12,
+          sm: 6,
+          md: 4,
+          lg: 2.4,
+        }}
+      >
+        <SectionReveal delay={index * 0.05}>
+          <Box
+            sx={{
+              background:
+                "linear-gradient(135deg, rgba(255,252,245,0.96) 0%, rgba(250,244,232,0.92) 100%)",
+
+              border: "1px solid rgba(122,53,36,0.08)",
+
+              borderRadius: "24px",
+
+              boxShadow: "0 12px 34px rgba(62,39,35,0.06)",
+
+              backdropFilter: "blur(12px)",
+
+              px: {
+                xs: 2,
+                sm: 2.4,
+                lg: 2.8,
+              },
+
+              py: {
+                xs: 1.5,
+                sm: 1.9,
+                lg: 2.8,
+              },
+
+              minHeight: {
+                xs: "auto",
+                lg: 185,
+              },
+
+              display: "flex",
+
+              flexDirection: {
+                xs: "row",
+                lg: "column",
+              },
+
+              alignItems: {
+                xs: "center",
+                lg: "flex-start",
+              },
+
+              justifyContent: "center",
+
+              gap: {
+                xs: 1.5,
+                lg: 2,
+              },
+
+              transition: "all 0.32s ease",
+
+              overflow: "hidden",
+
+              position: "relative",
+
+              "&:hover": {
+                transform: "translateY(-5px)",
+                boxShadow: "0 20px 48px rgba(62,39,35,0.11)",
+              },
+
+              "&::before": {
+                content: '""',
+                position: "absolute",
+                inset: 0,
+                background:
+                  "linear-gradient(180deg, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0) 100%)",
+                pointerEvents: "none",
+              },
+            }}
+          >
+            {/* Icon */}
+            <Box
+              sx={{
+                minWidth: {
+                  xs: 46,
+                  sm: 48,
+                },
+
+                width: {
+                  xs: 46,
+                  sm: 48,
+                },
+
+                height: {
+                  xs: 46,
+                  sm: 48,
+                },
+
+                borderRadius: "50%",
+
+                background:
+                  "linear-gradient(135deg, rgba(212,160,23,0.16) 0%, rgba(212,160,23,0.10) 100%)",
+
+                border: "1px solid rgba(212,160,23,0.14)",
+
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+
+                color: "#b7791f",
+
+                flexShrink: 0,
+
+                boxShadow:
+                  "inset 0 1px 4px rgba(255,255,255,0.38)",
+              }}
+            >
+              <item.icon size={21} strokeWidth={2} />
+            </Box>
+
+            {/* Title */}
+            <Typography
+              sx={{
+                color: "primary.main",
+
+                fontSize: {
+                  xs: "1rem",
+                  sm: "1.05rem",
+                  lg: "1.12rem",
+                },
+
+                fontWeight: 600,
+
+                lineHeight: {
+                  xs: 1.4,
+                  lg: 1.45,
+                },
+
+                letterSpacing: "-0.018em",
+
+                maxWidth: {
+                  xs: "100%",
+                  lg: "11ch",
+                },
+
+                textAlign: {
+                  xs: "left",
+                  lg: "left",
+                },
+              }}
+            >
+              {item.title}
+            </Typography>
+          </Box>
+        </SectionReveal>
+      </Grid>
+    ))}
+  </Grid>
+</Box>
 
       <Box component="section" className="section">
         <SectionIntro
@@ -213,10 +502,21 @@ export default function HomePage() {
         }}
       >
         <Container maxWidth="xl" sx={{ position: "relative" }}>
-          <Grid container spacing={{ xs: 4, md: 8 }} sx={{ alignItems: "center" }}>
+          <Grid
+            container
+            spacing={{ xs: 4, md: 8 }}
+            sx={{ alignItems: "center" }}
+          >
             <Grid size={{ xs: 12, md: 6 }}>
               <SectionReveal>
-                <Box sx={{ borderRadius: 2, minHeight: { xs: 380, md: 560 }, overflow: "hidden", position: "relative" }}>
+                <Box
+                  sx={{
+                    borderRadius: 2,
+                    minHeight: { xs: 380, md: 560 },
+                    overflow: "hidden",
+                    position: "relative",
+                  }}
+                >
                   <FloatingCoverImage
                     alt="Family cooking traditional Tamil food"
                     sizes="(max-width: 900px) 100vw, 50vw"
@@ -230,22 +530,44 @@ export default function HomePage() {
                 <Typography className="eyebrow" sx={{ color: "warning.main" }}>
                   Our Story
                 </Typography>
-                <Typography variant="h2" sx={{ fontSize: { xs: "2.4rem", md: "4.6rem" } }}>
+                <Typography
+                  variant="h2"
+                  sx={{ fontSize: { xs: "2.4rem", md: "4.6rem" } }}
+                >
                   Every meal feels like home because it begins like one.
                 </Typography>
-                <Typography sx={{ color: "rgba(255,248,237,0.76)", fontSize: "1.08rem", lineHeight: 1.9, mt: 3 }}>
+                <Typography
+                  sx={{
+                    color: "rgba(255,248,237,0.76)",
+                    fontSize: "1.08rem",
+                    lineHeight: 1.9,
+                    mt: 3,
+                  }}
+                >
                   Virundhaalaya grew from a family kitchen where recipes were
                   measured by memory, patience, and care. The sambar is not
                   rushed. The biriyani masala is not generic. The sweetness is
                   not just jaggery; it is the feeling of being served by someone
                   who wants you to eat well.
                 </Typography>
-                <Stack direction="row" spacing={1} sx={{ flexWrap: "wrap", mt: 3 }}>
-                  {["Stone-ground masala", "Banana leaf service", "Fresh daily batches"].map((label) => (
+                <Stack
+                  direction="row"
+                  spacing={1}
+                  sx={{ flexWrap: "wrap", mt: 3 }}
+                >
+                  {[
+                    "Stone-ground masala",
+                    "Banana leaf service",
+                    "Fresh daily batches",
+                  ].map((label) => (
                     <Chip
                       key={label}
                       label={label}
-                      sx={{ bgcolor: "rgba(255,248,237,0.1)", color: "background.default", fontWeight: 800 }}
+                      sx={{
+                        bgcolor: "rgba(255,248,237,0.1)",
+                        color: "background.default",
+                        fontWeight: 800,
+                      }}
                     />
                   ))}
                 </Stack>
@@ -259,7 +581,11 @@ export default function HomePage() {
         <StatsCounter />
       </Box>
 
-      <Box component="section" className="section-tight" sx={{ bgcolor: "rgba(245,230,204,0.38)" }}>
+      <Box
+        component="section"
+        className="section-tight"
+        sx={{ bgcolor: "rgba(245,230,204,0.38)" }}
+      >
         <SectionIntro
           eyebrow="Guest Notes"
           title="Loved by families, teams, and celebration hosts"
@@ -292,15 +618,31 @@ export default function HomePage() {
             <Typography className="eyebrow" sx={{ color: "warning.main" }}>
               Catering With Care
             </Typography>
-            <Typography variant="h2" sx={{ fontSize: { xs: "2.5rem", md: "5rem" } }}>
+            <Typography
+              variant="h2"
+              sx={{ fontSize: { xs: "2.5rem", md: "5rem" } }}
+            >
               Tradition served beautifully for your next family event.
             </Typography>
-            <Typography sx={{ color: "rgba(255,248,237,0.78)", lineHeight: 1.85, mx: "auto", mt: 2.5, maxWidth: 720 }}>
+            <Typography
+              sx={{
+                color: "rgba(255,248,237,0.78)",
+                lineHeight: 1.85,
+                mx: "auto",
+                mt: 2.5,
+                maxWidth: 720,
+              }}
+            >
               Weddings, birthdays, corporate lunches, festival orders,
               seemantham, and housewarming menus planned with calm coordination
               and handmade taste.
             </Typography>
-            <AnimatedButton href="/catering" variant="contained" glow sx={{ mt: 4 }}>
+            <AnimatedButton
+              href="/catering"
+              variant="contained"
+              glow
+              sx={{ mt: 4 }}
+            >
               Plan Catering
             </AnimatedButton>
           </SectionReveal>

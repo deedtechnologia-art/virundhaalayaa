@@ -1,8 +1,9 @@
+import {ChefHat,ScrollText,Leaf,Flame,Wheat} from "lucide-react";
 export type FoodKind = "Veg" | "Non-Veg";
 
 export type MenuItem = {
   name: string;
-  category: "Breakfast" | "Lunch" | "Dinner" | "Snacks" | "Sweets" | "Catering Specials";
+  category: "Catering Specials" | "Breakfast" | "Lunch" | "Dinner" | "Snacks";
   description: string;
   kind: FoodKind;
   image: string;
@@ -13,11 +14,26 @@ export const heroImage =
   "https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?auto=format&fit=crop&w=1800&q=85";
 
 export const trustHighlights = [
-  { title: "Homemade", copy: "Small-batch cooking with patient hands and family recipes." },
-  { title: "No Preservatives", copy: "Freshly prepared food without shortcuts or artificial boosters." },
-  { title: "Hygienic Kitchen", copy: "Clean prep zones, measured storage, and disciplined service." },
-  { title: "Traditional Recipes", copy: "Tamil flavors shaped by stone-ground masalas and slow tempering." },
-  { title: "Fresh Ingredients", copy: "Daily vegetables, fragrant spices, and trusted local sourcing." },
+  {
+    title: "Freshly Prepared Daily",
+    icon: ChefHat,
+  },
+  {
+    title: "Authentic Tamil Recipes",
+    icon: ScrollText,
+  },
+  {
+    title: "No Artificial Preservatives",
+    icon: Leaf,
+  },
+  {
+    title: "Woodfire Hygienic Kitchen",
+    icon: Flame,
+  },
+  {
+    title: "Quality Farm Ingredients",
+    icon: Wheat,
+  },
 ] as const;
 
 export const popularFoods = [
@@ -260,53 +276,11 @@ export const menuItems: MenuItem[] = [
     kind: "Non-Veg",
     image: "https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=900&q=85",
   },
+
   {
-    name: "Sweet Pongal",
-    category: "Sweets",
-    description: "Jaggery rice pudding with ghee, cashew, and cardamom.",
-    kind: "Veg",
-    image: "https://images.unsplash.com/photo-1605197183305-6ddca27249d4?auto=format&fit=crop&w=900&q=85",
-    popular: true,
-  },
-  {
-    name: "Paal Payasam",
-    category: "Sweets",
-    description: "Slow-reduced milk payasam with rice and nuts.",
-    kind: "Veg",
-    image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=900&q=85",
-  },
-  {
-    name: "Kesari",
-    category: "Sweets",
-    description: "Saffron semolina sweet with ghee-roasted cashews.",
-    kind: "Veg",
-    image: "https://images.unsplash.com/photo-1590080876207-928d931916dc?auto=format&fit=crop&w=900&q=85",
-  },
-  {
-    name: "Adhirasam",
-    category: "Sweets",
-    description: "Traditional rice and jaggery sweet fried gently.",
-    kind: "Veg",
-    image: "https://images.unsplash.com/photo-1610508500445-a4592435e27e?auto=format&fit=crop&w=900&q=85",
-  },
-  {
-    name: "Mysore Pak",
-    category: "Sweets",
-    description: "Ghee-rich gram flour sweet with a soft bite.",
-    kind: "Veg",
-    image: "https://images.unsplash.com/photo-1605197183305-6ddca27249d4?auto=format&fit=crop&w=900&q=85",
-  },
-  {
-    name: "Laddu",
-    category: "Sweets",
-    description: "Festive gram flour laddu with cardamom and nuts.",
-    kind: "Veg",
-    image: "https://images.unsplash.com/photo-1590080876207-928d931916dc?auto=format&fit=crop&w=900&q=85",
-  },
-  {
-    name: "Wedding Banana Leaf Virundhu",
+    name: "Banana Leaf Virundhu",
     category: "Catering Specials",
-    description: "Full-course wedding feast with welcome drinks and sweets.",
+    description: "Full-course feast with welcome drinks and sweets.",
     kind: "Veg",
     image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=900&q=85",
   },
