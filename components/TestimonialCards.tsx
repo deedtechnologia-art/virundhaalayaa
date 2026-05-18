@@ -1,9 +1,12 @@
 "use client";
 
+import ChevronLeftRoundedIcon from "@mui/icons-material/ChevronLeftRounded";
+import ChevronRightRoundedIcon from "@mui/icons-material/ChevronRightRounded";
 import PlayCircleRoundedIcon from "@mui/icons-material/PlayCircleRounded";
 import StarRoundedIcon from "@mui/icons-material/StarRounded";
-import { Avatar, Box, Container, Grid, Stack, Typography } from "@mui/material";
+import { Avatar, Box, Container, Grid, IconButton, Stack, Typography } from "@mui/material";
 import { motion } from "framer-motion";
+import { useCallback, useEffect, useRef } from "react";
 import { testimonials } from "@/lib";
 import { SectionReveal } from "./Motion";
 
@@ -28,6 +31,101 @@ export function TestimonialCards({ carousel = false }: { carousel?: boolean }) {
 }
 
 function PremiumTestimonials() {
+  const scrollerRef = useRef<HTMLDivElement | null>(null);
+  const pausedRef = useRef(false);
+  const resumeTimerRef = useRef<number | null>(null);
+
+  const scheduleAutoResume = useCallback((delay = 1200) => {
+    if (resumeTimerRef.current) {
+      window.clearTimeout(resumeTimerRef.current);
+    }
+
+    resumeTimerRef.current = window.setTimeout(() => {
+      pausedRef.current = false;
+      resumeTimerRef.current = null;
+    }, delay);
+  }, []);
+
+  const pauseAutoScroll = useCallback(
+    (resumeDelay?: number) => {
+      pausedRef.current = true;
+
+      if (resumeDelay) {
+        scheduleAutoResume(resumeDelay);
+      }
+    },
+    [scheduleAutoResume],
+  );
+
+  const scrollTestimonials = useCallback(
+    (direction: -1 | 1) => {
+      const scroller = scrollerRef.current;
+
+      if (!scroller) return;
+
+      const firstCard = scroller.querySelector<HTMLElement>("[data-testimonial-card]");
+      const distance = firstCard
+        ? firstCard.offsetWidth + 24
+        : Math.round(scroller.clientWidth * 0.85);
+      const loopPoint = scroller.scrollWidth / 2;
+
+      pausedRef.current = true;
+
+      if (direction < 0 && scroller.scrollLeft <= distance && loopPoint > 0) {
+        scroller.scrollLeft += loopPoint;
+      }
+
+      if (direction > 0 && scroller.scrollLeft >= loopPoint - distance && loopPoint > 0) {
+        scroller.scrollLeft -= loopPoint;
+      }
+
+      scroller.scrollBy({ behavior: "smooth", left: distance * direction });
+      scheduleAutoResume(1800);
+    },
+    [scheduleAutoResume],
+  );
+
+  useEffect(() => {
+    const reduceMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+    if (reduceMotionQuery.matches) {
+      return undefined;
+    }
+
+    let animationFrame = 0;
+    let previousTime = performance.now();
+
+    const tick = (time: number) => {
+      const scroller = scrollerRef.current;
+      const delta = time - previousTime;
+
+      if (scroller && !pausedRef.current) {
+        const loopPoint = scroller.scrollWidth / 2;
+
+        if (loopPoint > scroller.clientWidth) {
+          scroller.scrollLeft += delta * 0.035;
+
+          if (scroller.scrollLeft >= loopPoint) {
+            scroller.scrollLeft -= loopPoint;
+          }
+        }
+      }
+
+      previousTime = time;
+      animationFrame = window.requestAnimationFrame(tick);
+    };
+
+    animationFrame = window.requestAnimationFrame(tick);
+
+    return () => {
+      window.cancelAnimationFrame(animationFrame);
+
+      if (resumeTimerRef.current) {
+        window.clearTimeout(resumeTimerRef.current);
+      }
+    };
+  }, []);
+
   return (
     <Box
       component="section"
@@ -74,15 +172,73 @@ function PremiumTestimonials() {
               width: { xs: 88, md: 132 },
             }}
           />
+          <Stack
+            direction="row"
+            spacing={1}
+            sx={{
+              justifyContent: "center",
+              mt: { xs: 2.5, md: 3 },
+            }}
+          >
+            <IconButton
+              aria-label="Previous guest review"
+              onClick={() => scrollTestimonials(-1)}
+              sx={{
+                bgcolor: "rgba(122,31,31,0.1)",
+                border: "1px solid rgba(122,31,31,0.12)",
+                color: "primary.main",
+                height: 44,
+                width: 44,
+                "&:hover": {
+                  bgcolor: "rgba(122,31,31,0.16)",
+                },
+              }}
+            >
+              <ChevronLeftRoundedIcon />
+            </IconButton>
+            <IconButton
+              aria-label="Next guest review"
+              onClick={() => scrollTestimonials(1)}
+              sx={{
+                bgcolor: "rgba(122,31,31,0.1)",
+                border: "1px solid rgba(122,31,31,0.12)",
+                color: "primary.main",
+                height: 44,
+                width: 44,
+                "&:hover": {
+                  bgcolor: "rgba(122,31,31,0.16)",
+                },
+              }}
+            >
+              <ChevronRightRoundedIcon />
+            </IconButton>
+          </Stack>
         </SectionReveal>
       </Container>
 
       <Box
         aria-label="Guest testimonials"
+        onFocus={() => pauseAutoScroll()}
+        onMouseEnter={() => pauseAutoScroll()}
+        onMouseLeave={() => scheduleAutoResume(500)}
+        onPointerDown={() => pauseAutoScroll()}
+        onPointerUp={() => scheduleAutoResume(1400)}
+        onTouchEnd={() => scheduleAutoResume(1400)}
+        onWheel={() => pauseAutoScroll(1400)}
+        ref={scrollerRef}
         sx={{
-          overflow: "hidden",
+          overflowX: "auto",
+          overflowY: "hidden",
           position: "relative",
-          touchAction: "pan-y",
+          scrollBehavior: "smooth",
+          scrollPaddingInline: { xs: 24, md: 48 },
+          scrollSnapType: "x proximity",
+          scrollbarWidth: "none",
+          touchAction: "pan-x pan-y",
+          WebkitOverflowScrolling: "touch",
+          "&::-webkit-scrollbar": {
+            display: "none",
+          },
           "&::before, &::after": {
             content: '""',
             height: "100%",
@@ -102,29 +258,12 @@ function PremiumTestimonials() {
               "linear-gradient(270deg, rgba(255,248,237,0.98), rgba(255,248,237,0))",
             right: 0,
           },
-          "&:hover .testimonial-track": {
-            animationPlayState: "paused",
-          },
-          "@media (prefers-reduced-motion: reduce)": {
-            "& .testimonial-track": {
-              animation: "none",
-              overflowX: "auto",
-            },
-          },
         }}
       >
         <Box
           className="testimonial-track"
           component={motion.div}
-          drag="x"
-          dragConstraints={{ left: -900, right: 0 }}
-          dragElastic={0.08}
           sx={{
-            "@keyframes testimonialMarquee": {
-              "0%": { transform: "translate3d(0,0,0)" },
-              "100%": { transform: "translate3d(-50%,0,0)" },
-            },
-            animation: "testimonialMarquee 42s linear infinite",
             cursor: { xs: "grab", md: "default" },
             display: "flex",
             gap: { xs: 2, md: 3 },
@@ -183,6 +322,7 @@ function ReviewCard({
         overflow: "hidden",
         p: { xs: 2.4, sm: 3, md: 3.6 },
         position: "relative",
+        scrollSnapAlign: marquee ? "start" : undefined,
         transition: "box-shadow 260ms ease, border-color 260ms ease",
         width: marquee
           ? { xs: "calc(100vw - 48px)", sm: 360, md: 410, lg: 430 }
@@ -201,6 +341,7 @@ function ReviewCard({
           position: "absolute",
         },
       }}
+      data-testimonial-card={marquee ? "true" : undefined}
     >
       <Box sx={{ position: "relative", zIndex: 1 }}>
         <Stack

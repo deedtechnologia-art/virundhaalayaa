@@ -38,16 +38,14 @@ export const trustHighlights = [
 ] as const;
 
 export const popularFoods = [
-  "Chicken Biriyani",
-  "Mutton Biriyani",
-  "Meals",
-  "Idli",
-  "Dosa",
-  "Pongal",
-  "Lemon Rice",
-  "Parotta",
-  "Chettinad Chicken",
-  "Sweet Pongal",
+  "Senior Care",
+  "Birthday Events",
+  "Corporate/Office Events",
+  "Family Gatherings",
+  "Sunday Saapadu",
+  "Lunch Box",
+  "Kattu Soaru",
+  "Side Dishes"
 ] as const;
 
 export const menuItems: MenuItem[] = [
@@ -443,38 +441,100 @@ export const galleryImages = [
   },
 ] as const;
 
-export const cateringServices = [
+export type CateringService = {
+  title: string;
+  slug: string;
+  copy: string;
+  image: string;
+  specialties: string[];
+};
+
+export const cateringServices: CateringService[] = [
   {
-    title: "Wedding Catering",
-    copy: "Ceremonial banana leaf feasts, premium buffet layouts, and graceful service for large guest counts.",
-    image: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=900&q=85",
+    title: "Senior Care Meals",
+    slug: "senior-care",
+    copy: "Gentle, easy-to-digest meals tailored for elders, prepared with less oil, zero artificial ingredients, and mild spices.",
+    image: "https://images.unsplash.com/photo-1559847844-5315695dadae?auto=format&fit=crop&w=900&q=85",
+    specialties: ["Mild Spices", "Soft Cooked", "Daily Delivery", "Custom Diet"],
   },
   {
     title: "Birthday Events",
+    slug: "birthday-events",
     copy: "Comforting family menus with live dosa counters, sweets, snacks, and kid-friendly portions.",
     image: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=900&q=85",
+    specialties: ["Live Dosa Counter", "Kid-friendly", "Custom Sweets", "Mini Buffet"],
   },
   {
     title: "Corporate Catering",
+    slug: "corporate-events",
     copy: "Neatly packed meals and buffets that keep office lunches warm, hygienic, and dependable.",
     image: "https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=900&q=85",
+    specialties: ["Buffet Setup", "Lunch Boxes", "Timely Delivery", "Bulk Orders"],
+  },
+  {
+    title: "Family Gatherings",
+    slug: "family-gatherings",
+    copy: "Hearty, traditional spreads perfect for weekend family meetups, bursting with authentic homemade flavors.",
+    image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=900&q=85",
+    specialties: ["Banana Leaf Service", "Grand Feasts", "Custom Menus", "Traditional Taste"],
+  },
+  {
+    title: "Sunday Saapadu",
+    slug: "sunday-saapadu",
+    copy: "The classic Sunday non-veg feast featuring rich gravies, biriyani, and sides, just like Amma makes.",
+    image: "https://images.unsplash.com/photo-1563379091339-03246963d96c?auto=format&fit=crop&w=900&q=85",
+    specialties: ["Mutton Biriyani", "Nattu Kozhi", "Meen Kuzhambu", "Weekend Special"],
+  },
+  {
+    title: "Lunch Box",
+    slug: "lunch-box",
+    copy: "Perfectly portioned daily meals with a healthy balance of rice, poriyal, kootu, and traditional curries.",
+    image: "https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?auto=format&fit=crop&w=900&q=85",
+    specialties: ["Daily Subscriptions", "Eco-friendly Pack", "Balanced Diet", "Freshly Made"],
+  },
+  {
+    title: "Kattu Soaru",
+    slug: "kattu-soaru",
+    copy: "Traditional travel-friendly mixed rice varieties packed in banana leaves for long-lasting freshness.",
+    image: "https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=900&q=85",
+    specialties: ["Travel Friendly", "Banana Leaf Packed", "Variety Rice", "Long Shelf Life"],
+  },
+  {
+    title: "Side Dishes",
+    slug: "side-dishes",
+    copy: "Authentic Chettinad and village-style side dishes to perfectly complement your home-cooked meals.",
+    image: "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=900&q=85",
+    specialties: ["Pepper Chukka", "Chicken 65", "Fish Fry", "Veg Poriyal"],
+  },
+  {
+    title: "Wedding Catering",
+    slug: "wedding-catering",
+    copy: "Ceremonial banana leaf feasts, premium buffet layouts, and graceful service for large guest counts.",
+    image: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=900&q=85",
+    specialties: ["Grand Virundhu", "Welcome Drinks", "Premium Service", "Sweets & Desserts"],
   },
   {
     title: "Festival Catering",
+    slug: "festival-catering",
     copy: "Pongal, Deepavali, Tamil New Year, and temple-style menus with sweets and savories.",
     image: "https://images.unsplash.com/photo-1605197183305-6ddca27249d4?auto=format&fit=crop&w=900&q=85",
+    specialties: ["Temple Recipes", "Traditional Sweets", "Bulk Snacks", "Auspicious Menus"],
   },
   {
     title: "Seemantham",
+    slug: "seemantham",
     copy: "Auspicious home-style spreads planned with gentle flavors, rituals, and elder-friendly service.",
     image: "https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?auto=format&fit=crop&w=900&q=85",
+    specialties: ["Ritual Foods", "Gentle Spices", "Variety Rice", "Family Style"],
   },
   {
     title: "Housewarming",
+    slug: "housewarming",
     copy: "Early-morning breakfast and lunch packages for pooja days, family visits, and new beginnings.",
     image: "https://images.unsplash.com/photo-1668236543090-82eba5ee5976?auto=format&fit=crop&w=900&q=85",
+    specialties: ["Early Morning Delivery", "Idli & Pongal", "Filter Coffee", "Pooja Specials"],
   },
-] as const;
+];
 
 export const processSteps = [
   "Share event details",
