@@ -1,14 +1,14 @@
 export const siteConfig = {
   name: "Virundhaalaya",
-  tagline: "Taste of Amma's Kitchen",
+  tagline: "Handcrafted Tamil Cuisine",
   description:
-    "Authentic homemade Tamil food, traditional meals delivery, and premium family catering in Coimbatore made with love, hygiene, and heritage recipes.",
+    "Authentic handcrafted Tamil food, heritage meal delivery, and premium family catering in Coimbatore, made with fresh ingredients, slow recipes, and culinary care.",
   url: "https://virundhaalaya.com",
   locale: "en_IN",
   keywords: [
     "Homemade food in Coimbatore",
     "Tamil homemade catering",
-    "Traditional meals delivery",
+    "Authentic meals delivery",
     "South Indian homemade food",
     "cloud kitchen",
     "cloudkitchen india",
@@ -17,7 +17,7 @@ export const siteConfig = {
     "family event foods",
     "cooking with love",
     "Tasty food",
-    "Traditional Tamil food delivery",
+    "Heritage Tamil food delivery",
     "Authentic South Indian homemade meals",
   ],
 } as const;
@@ -26,12 +26,14 @@ export const businessConfig = {
   phone: "+91 8695383239",
   whatsapp: "8695383239",
   email: "hello@virundhaalaya.com",
+  yearsInBusiness: 7,
   address: {
     street: "Peelamedu",
     city: "Coimbatore",
     region: "Tamil Nadu",
     postalCode: "641001",
     country: "IN",
+    
   },
   socialLinks: {
     instagram: "https://instagram.com/",

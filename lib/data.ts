@@ -45,7 +45,8 @@ export const popularFoods = [
   "Sunday Saapadu",
   "Lunch Box",
   "Kattu Soaru",
-  "Side Dishes"
+  "Side Dishes",
+  "Ready to eat Meals"
 ] as const;
 
 export const menuItems: MenuItem[] = [
@@ -208,7 +209,7 @@ export const menuItems: MenuItem[] = [
   {
     name: "Dosa with Kari Kuzhambu",
     category: "Dinner",
-    description: "Crisp dosa with village-style mutton gravy.",
+    description: "Crisp dosa with Chettinad-spiced mutton kuzhambu.",
     kind: "Non-Veg",
     image: "https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=900&q=85",
   },
@@ -307,7 +308,7 @@ export const menuItems: MenuItem[] = [
   {
     name: "Festival Sweets Hamper",
     category: "Catering Specials",
-    description: "Traditional sweets and savories packed for gifting.",
+    description: "Handcrafted festival sweets and savories, packed with care for gifting.",
     kind: "Veg",
     image: "https://images.unsplash.com/photo-1605197183305-6ddca27249d4?auto=format&fit=crop&w=900&q=85",
   },
@@ -333,7 +334,7 @@ export const menuItems: MenuItem[] = [
     image: "https://images.unsplash.com/photo-1694849789325-914b71ab4075?auto=format&fit=crop&w=900&q=85",
   },
   {
-    name: "Traditional Millet Spread",
+    name: "Heritage Millet Spread",
     category: "Catering Specials",
     description: "Kambu, ragi, thinai, and saamai dishes for health-focused events.",
     kind: "Veg",
@@ -404,7 +405,7 @@ export const galleryImages = [
     height: 560,
   },
   {
-    title: "Traditional Vessels",
+    title: "Heirloom Vessels",
     category: "Kitchen",
     image: "https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1000&q=85",
     height: 380,
@@ -474,35 +475,35 @@ export const cateringServices: CateringService[] = [
   {
     title: "Family Gatherings",
     slug: "family-gatherings",
-    copy: "Hearty, traditional spreads perfect for weekend family meetups, bursting with authentic homemade flavors.",
+    copy: "Generous, soul-warming spreads for weekend family gatherings, rich with deep Tamil flavours.",
     image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=900&q=85",
-    specialties: ["Banana Leaf Service", "Grand Feasts", "Custom Menus", "Traditional Taste"],
+    specialties: ["Banana Leaf Service", "Grand Feasts", "Custom Menus", "Heritage Flavours"],
   },
   {
     title: "Sunday Saapadu",
     slug: "sunday-saapadu",
-    copy: "The classic Sunday non-veg feast featuring rich gravies, biriyani, and sides, just like Amma makes.",
+    copy: "The cherished Sunday non-veg feast with rich gravies, slow-cooked biriyani, and a spread your family will gather around.",
     image: "https://images.unsplash.com/photo-1563379091339-03246963d96c?auto=format&fit=crop&w=900&q=85",
     specialties: ["Mutton Biriyani", "Nattu Kozhi", "Meen Kuzhambu", "Weekend Special"],
   },
   {
     title: "Lunch Box",
     slug: "lunch-box",
-    copy: "Perfectly portioned daily meals with a healthy balance of rice, poriyal, kootu, and traditional curries.",
+    copy: "Perfectly portioned daily meals with a wholesome balance of rice, poriyal, kootu, and handcrafted curries.",
     image: "https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?auto=format&fit=crop&w=900&q=85",
     specialties: ["Daily Subscriptions", "Eco-friendly Pack", "Balanced Diet", "Freshly Made"],
   },
   {
     title: "Kattu Soaru",
     slug: "kattu-soaru",
-    copy: "Traditional travel-friendly mixed rice varieties packed in banana leaves for long-lasting freshness.",
+    copy: "Time-honoured travel-ready mixed rice varieties packed in banana leaves for long-lasting freshness.",
     image: "https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=900&q=85",
     specialties: ["Travel Friendly", "Banana Leaf Packed", "Variety Rice", "Long Shelf Life"],
   },
   {
     title: "Side Dishes",
     slug: "side-dishes",
-    copy: "Authentic Chettinad and village-style side dishes to perfectly complement your home-cooked meals.",
+    copy: "Bold Chettinad and native-style side dishes, crafted to perfectly elevate your everyday meals.",
     image: "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=900&q=85",
     specialties: ["Pepper Chukka", "Chicken 65", "Fish Fry", "Veg Poriyal"],
   },
@@ -518,7 +519,7 @@ export const cateringServices: CateringService[] = [
     slug: "festival-catering",
     copy: "Pongal, Deepavali, Tamil New Year, and temple-style menus with sweets and savories.",
     image: "https://images.unsplash.com/photo-1605197183305-6ddca27249d4?auto=format&fit=crop&w=900&q=85",
-    specialties: ["Temple Recipes", "Traditional Sweets", "Bulk Snacks", "Auspicious Menus"],
+    specialties: ["Temple Recipes", "Heritage Sweets", "Bulk Snacks", "Auspicious Menus"],
   },
   {
     title: "Seemantham",

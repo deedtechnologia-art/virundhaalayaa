@@ -40,7 +40,7 @@ export function createMetadata({
           url: ogImage,
           width: 1600,
           height: 900,
-          alt: "Traditional Tamil homemade food",
+          alt: "Authentic Tamil heritage cuisine by Virundhaalaya",
         },
       ],
     },

@@ -39,7 +39,7 @@ const tamilSansFont = Noto_Sans_Tamil({
 export const metadata: Metadata = createMetadata({
   title: "Virundhaalaya | Authentic Tamil Homemade Food in Coimbatore",
   description:
-    "Traditional Tamil homemade food, daily meals, cloud kitchen delivery, and premium catering for weddings, family events, and corporate lunches in Coimbatore.",
+    "Handcrafted Tamil cuisine, daily meals, cloud kitchen delivery, and premium catering for weddings, family events, and corporate lunches in Coimbatore.",
 });
 
 export const viewport: Viewport = {

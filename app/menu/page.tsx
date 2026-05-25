@@ -16,7 +16,7 @@ export default function MenuPage() {
     <main>
       <PageHero
         eyebrow="Premium Homemade Menu"
-        title="Traditional meals, tiffin, and family/corporate feasts"
+        title="Heritage meals, tiffin, and family/corporate feasts"
         copy="Around fifty Tamil kitchen favorites, organized for everyday cravings and memorable occasions."
         image="https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?auto=format&fit=crop&w=1800&q=85"
         primaryLabel="Order on WhatsApp"

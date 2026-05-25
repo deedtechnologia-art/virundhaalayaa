@@ -10,7 +10,7 @@ import { createMetadata } from "@/lib/seo";
 export const metadata: Metadata = createMetadata({
   title: "About Us | Virundhaalaya Family Tamil Kitchen",
   description:
-    "Meet Virundhaalaya, a Coimbatore Tamil homemade food and catering kitchen rooted in family recipes, hygiene, fresh ingredients, and traditional preparation.",
+    "Meet Virundhaalaya, a Coimbatore Tamil culinary kitchen rooted in family recipes, hygiene, fresh ingredients, and time-honoured preparation.",
   path: "/about",
 });
 
@@ -19,7 +19,7 @@ const reasons = [
   "Fresh daily cooking without preservatives",
   "Separate planning for veg and non-veg menus",
   "Premium event coordination with homemade warmth",
-  "Traditional vessels, slow tempering, and hand-ground masalas",
+  "Heritage vessels, slow tempering, and hand-ground masalas",
   "Meals designed for elders, children, teams, and celebrations",
 ];
 
@@ -53,7 +53,7 @@ export default function AboutPage() {
             <SectionReveal delay={0.1}>
               <Box sx={{ borderRadius: 2, minHeight: { xs: 380, md: 560 }, overflow: "hidden", position: "relative" }}>
                 <FloatingCoverImage
-                  alt="Traditional Tamil cooking process"
+                  alt="Authentic Tamil culinary craft in progress"
                   sizes="(max-width: 900px) 100vw, 50vw"
                   src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=1200&q=85"
                 />
@@ -66,7 +66,7 @@ export default function AboutPage() {
       <Box component="section" className="section" sx={{ bgcolor: "rgba(245,230,204,0.42)" }}>
         <SectionIntro
           eyebrow="Why Choose Us"
-          title="Traditional preparation with modern kitchen discipline"
+          title="Time-honoured preparation with modern kitchen discipline"
         />
         <Grid container spacing={2.5}>
           {reasons.map((reason, index) => (

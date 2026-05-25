@@ -49,7 +49,7 @@ const menuGroups = [
   },
   {
     title: "Long-Time Storable Items",
-    subtitle: "Traditional snacks and pantry favourites for gifting and home.",
+    subtitle: "Artisan snacks and pantry favourites for gifting and home.",
     icon: SetMealRoundedIcon,
     image: "https://images.unsplash.com/photo-1601050690117-94f5f6fa8bd7?auto=format&fit=crop&w=900&q=85",
     items: ["Murukku", "Mixture", "Thattai", "Seedai", "Ribbon Pakoda", "Masala Podi", "Pickle", "Appalam"],
@@ -72,7 +72,7 @@ export function PremiumMenuExperience() {
     >
       <Container maxWidth="xl">
         <Box sx={{ mb: { xs: 4, md: 6 }, textAlign: "center" }}>
-          <Typography className="eyebrow">From Amma&apos;s Kitchen</Typography>
+          <Typography className="eyebrow">From Our Heritage Kitchen</Typography>
           <Typography
             variant="h2"
             sx={{
@@ -176,12 +176,20 @@ export function PremiumMenuExperience() {
                                   boxShadow: "0 10px 28px rgba(62,39,35,0.06)",
                                   color: "text.primary",
                                   fontWeight: 750,
-                                  height: { xs: 40, md: 44 },
+                                  height: "auto", // Allow height to adjust based on content
                                   justifyContent: "flex-start",
                                   maxWidth: "100%",
                                   width: "100%",
+                                  whiteSpace: "normal", // Allow text wrapping
+                                  wordBreak: "break-word", // Break long words if necessary
+                                  textAlign: "left", // Align text to the left for better readability
+                                  padding: "8px", // Add padding for better spacing
                                   "& .MuiChip-icon": { color: "warning.main" },
-                                  "& .MuiChip-label": { overflow: "hidden", textOverflow: "ellipsis" },
+                                  "& .MuiChip-label": {
+                                    overflow: "visible",
+                                    textOverflow: "clip",
+                                    whiteSpace: "normal",
+                                  }, // Ensure full visibility of text
                                   "&:hover": { bgcolor: "rgba(212,160,23,0.13)", transform: "translateY(-2px)" },
                                 }}
                               />

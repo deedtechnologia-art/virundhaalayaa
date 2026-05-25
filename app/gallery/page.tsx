@@ -8,7 +8,7 @@ import { createMetadata } from "@/lib/seo";
 export const metadata: Metadata = createMetadata({
   title: "Gallery | Virundhaalaya Kitchen, Food and Catering",
   description:
-    "Explore Virundhaalaya's Tamil food gallery with kitchen visuals, cooking process, traditional vessels, fresh ingredients, banana leaf serving, and catering moments.",
+    "Explore Virundhaalaya's Tamil food gallery with kitchen visuals, cooking process, heirloom vessels, fresh ingredients, banana leaf serving, and catering moments.",
   path: "/gallery",
 });
 
