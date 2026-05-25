@@ -139,7 +139,7 @@ export function FoodCard({ item, compact = false }: { item: MenuItem; compact?: 
           {item.description}
         </Typography>
 
-        <Stack direction="row" alignItems="center" gap={1} sx={{ mt: compact ? 1.5 : 2 }}>
+        <Stack direction="row" sx={{ alignItems: "center", gap: 1, mt: compact ? 1.5 : 2 }}>
           <Chip
             label={item.kind}
             size="small"
