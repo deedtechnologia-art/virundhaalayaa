@@ -1,4 +1,4 @@
-import {ChefHat,ScrollText,Leaf,Flame,Wheat} from "lucide-react";
+import { ChefHat, Flame, Leaf, ScrollText, ShieldCheck, Wheat } from "lucide-react";
 export type FoodKind = "Veg" | "Non-Veg";
 
 export type MenuItem = {
@@ -15,6 +15,10 @@ export const heroImage =
   "/images/hero/virundhaalaya-hero.webp";
 
 export const trustHighlights = [
+  {
+    title: "FSSAI Approved Kitchen",
+    icon: ShieldCheck,
+  },
   {
     title: "Freshly Prepared Daily",
     icon: ChefHat,
@@ -508,11 +512,11 @@ export const cateringServices: CateringService[] = [
     specialties: ["Pepper Chukka", "Chicken 65", "Fish Fry", "Veg Poriyal"],
   },
   {
-    title: "Wedding Catering",
-    slug: "wedding-catering",
-    copy: "Ceremonial banana leaf feasts, premium buffet layouts, and graceful service for large guest counts.",
+    title: "Team Lunch",
+    slug: "team-lunch",
+    copy: "Wholesome, comforting meals that bring the warmth of home to your office lunch table, perfect for team bonding and repeat orders.",
     image: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=900&q=85",
-    specialties: ["Grand Virundhu", "Welcome Drinks", "Premium Service", "Sweets & Desserts"],
+    specialties: ["Wholesome Meals", "Comforting Flavors", "Team Bonding", "Sweets & Desserts"],
   },
   {
     title: "Festival Catering",

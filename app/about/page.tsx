@@ -15,12 +15,12 @@ export const metadata: Metadata = createMetadata({
 });
 
 const reasons = [
-  "Recipes carried through family kitchens",
-  "Fresh daily cooking without preservatives",
-  "Separate planning for veg and non-veg menus",
-  "Premium event coordination with homemade warmth",
+  "Woodfire kitchen discipline with modern hygiene standards",
+  "Fresh daily cooking without preservatives or reheating",
+  "Separate planning for veg and non-veg menus to ensure authentic taste",
+  "Premium event coordination with homemade warmth and Love",
   "Heritage vessels, slow tempering, and hand-ground masalas",
-  "Meals designed for elders, children, teams, and celebrations",
+  "Meals designed for elders, children, teams which are suitable for all ages",
 ];
 
 export default function AboutPage() {

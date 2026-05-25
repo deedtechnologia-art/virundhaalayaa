@@ -5,6 +5,7 @@ import { FoodCard } from "@/components/FoodCard";
 import { FloatingCoverImage } from "@/components/FloatingCoverImage";
 import { MotionBox, ParallaxBox, SectionReveal } from "@/components/Motion";
 import { SectionIntro } from "@/components/SectionIntro";
+import { ServingHours } from "@/components/ServingHours";
 import { StatsCounter } from "@/components/StatsCounter";
 import { SubscriptionPlans } from "@/components/SubscriptionPlans";
 import { TestimonialCards } from "@/components/TestimonialCards";
@@ -332,165 +333,253 @@ export default function HomePage() {
         </Box>
       </Box>
 
+      <ServingHours />
+
       <Box component="section" className="section-tight">
         <Grid container spacing={{ xs: 1.6, sm: 2.2, lg: 2.5 }}>
-          {trustHighlights.map((item, index) => (
-            <Grid
-              key={item.title}
-              size={{
-                xs: 12,
-                sm: 6,
-                md: 4,
-                lg: 2.4,
-              }}
-            >
-              <SectionReveal delay={index * 0.05}>
-                <Box
-                  sx={{
-                    background:
-                      "linear-gradient(135deg, rgba(255,252,245,0.96) 0%, rgba(250,244,232,0.92) 100%)",
+          {trustHighlights.map((item, index) => {
+            const isFssai = item.title.includes("FSSAI");
 
-                    border: "1px solid rgba(122,53,36,0.08)",
-
-                    borderRadius: "24px",
-
-                    boxShadow: "0 12px 34px rgba(62,39,35,0.06)",
-
-                    backdropFilter: "blur(12px)",
-
-                    px: {
-                      xs: 2,
-                      sm: 2.4,
-                      lg: 2.8,
-                    },
-
-                    py: {
-                      xs: 1.5,
-                      sm: 1.9,
-                      lg: 2.8,
-                    },
-
-                    minHeight: {
-                      xs: "auto",
-                      lg: 185,
-                    },
-
-                    display: "flex",
-
-                    flexDirection: {
-                      xs: "row",
-                      lg: "column",
-                    },
-
-                    alignItems: {
-                      xs: "center",
-                      lg: "flex-start",
-                    },
-
-                    justifyContent: "center",
-
-                    gap: {
-                      xs: 1.5,
-                      lg: 2,
-                    },
-
-                    transition: "all 0.32s ease",
-
-                    overflow: "hidden",
-
-                    position: "relative",
-
-                    "&:hover": {
-                      transform: "translateY(-5px)",
-                      boxShadow: "0 20px 48px rgba(62,39,35,0.11)",
-                    },
-
-                    "&::before": {
-                      content: '""',
-                      position: "absolute",
-                      inset: 0,
-                      background:
-                        "linear-gradient(180deg, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0) 100%)",
-                      pointerEvents: "none",
-                    },
-                  }}
-                >
-                  {/* Icon */}
+            return (
+              <Grid
+                key={item.title}
+                size={
+                  isFssai
+                    ? { xs: 12 }
+                    : {
+                        xs: 12,
+                        sm: 6,
+                        md: 4,
+                        lg: 2.4,
+                      }
+                }
+              >
+                <SectionReveal delay={index * 0.05}>
                   <Box
                     sx={{
-                      minWidth: {
-                        xs: 46,
-                        sm: 48,
+                      background: isFssai
+                        ? "linear-gradient(135deg, rgba(122,31,31,0.98) 0%, rgba(90,32,26,0.96) 52%, rgba(212,160,23,0.84) 100%)"
+                        : "linear-gradient(135deg, rgba(255,252,245,0.96) 0%, rgba(250,244,232,0.92) 100%)",
+
+                      border: isFssai
+                        ? "1px solid rgba(255,248,237,0.28)"
+                        : "1px solid rgba(122,53,36,0.08)",
+
+                      borderRadius: "24px",
+
+                      boxShadow: isFssai
+                        ? "0 22px 58px rgba(122,31,31,0.20), inset 0 1px 0 rgba(255,248,237,0.24)"
+                        : "0 12px 34px rgba(62,39,35,0.06)",
+
+                      backdropFilter: "blur(12px)",
+
+                      px: {
+                        xs: 2,
+                        sm: isFssai ? 3 : 2.4,
+                        lg: isFssai ? 4 : 2.8,
                       },
 
-                      width: {
-                        xs: 46,
-                        sm: 48,
+                      py: {
+                        xs: isFssai ? 2 : 1.5,
+                        sm: isFssai ? 2.5 : 1.9,
+                        lg: isFssai ? 3 : 2.8,
                       },
 
-                      height: {
-                        xs: 46,
-                        sm: 48,
+                      minHeight: {
+                        xs: "auto",
+                        lg: isFssai ? 132 : 185,
                       },
-
-                      borderRadius: "50%",
-
-                      background:
-                        "linear-gradient(135deg, rgba(212,160,23,0.16) 0%, rgba(212,160,23,0.10) 100%)",
-
-                      border: "1px solid rgba(212,160,23,0.14)",
 
                       display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
 
-                      color: "#b7791f",
+                      flexDirection: {
+                        xs: "row",
+                        lg: isFssai ? "row" : "column",
+                      },
 
-                      flexShrink: 0,
+                      alignItems: {
+                        xs: "center",
+                        lg: isFssai ? "center" : "flex-start",
+                      },
 
-                      boxShadow: "inset 0 1px 4px rgba(255,255,255,0.38)",
+                      justifyContent: isFssai ? "space-between" : "center",
+
+                      gap: {
+                        xs: 1.5,
+                        lg: isFssai ? 3 : 2,
+                      },
+
+                      transition: "all 0.32s ease",
+
+                      overflow: "hidden",
+
+                      position: "relative",
+
+                      "&:hover": {
+                        transform: "translateY(-5px)",
+                        boxShadow: isFssai
+                          ? "0 28px 70px rgba(122,31,31,0.26), inset 0 1px 0 rgba(255,248,237,0.28)"
+                          : "0 20px 48px rgba(62,39,35,0.11)",
+                      },
+
+                      "&::before": {
+                        content: '""',
+                        position: "absolute",
+                        inset: 0,
+                        background: isFssai
+                          ? "radial-gradient(circle at 14% 18%, rgba(255,248,237,0.18), transparent 24%), linear-gradient(180deg, rgba(255,255,255,0.16) 0%, rgba(255,255,255,0) 100%)"
+                          : "linear-gradient(180deg, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0) 100%)",
+                        pointerEvents: "none",
+                      },
                     }}
                   >
-                    <item.icon size={21} strokeWidth={2} />
+                    <Box
+                      sx={{
+                        alignItems: "center",
+                        display: "flex",
+                        gap: { xs: 1.5, sm: 2 },
+                        minWidth: 0,
+                        position: "relative",
+                        zIndex: 1,
+                      }}
+                    >
+                      {/* Icon */}
+                      <Box
+                        sx={{
+                          minWidth: {
+                            xs: isFssai ? 54 : 46,
+                            sm: isFssai ? 62 : 48,
+                          },
+
+                          width: {
+                            xs: isFssai ? 54 : 46,
+                            sm: isFssai ? 62 : 48,
+                          },
+
+                          height: {
+                            xs: isFssai ? 54 : 46,
+                            sm: isFssai ? 62 : 48,
+                          },
+
+                          borderRadius: "50%",
+
+                          background: isFssai
+                            ? "linear-gradient(135deg, rgba(255,248,237,0.96), rgba(255,230,161,0.78))"
+                            : "linear-gradient(135deg, rgba(212,160,23,0.16) 0%, rgba(212,160,23,0.10) 100%)",
+
+                          border: isFssai
+                            ? "1px solid rgba(255,248,237,0.36)"
+                            : "1px solid rgba(212,160,23,0.14)",
+
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+
+                          color: isFssai ? "primary.main" : "#b7791f",
+
+                          flexShrink: 0,
+
+                          boxShadow: isFssai
+                            ? "0 10px 28px rgba(42,23,20,0.18), inset 0 1px 4px rgba(255,255,255,0.56)"
+                            : "inset 0 1px 4px rgba(255,255,255,0.38)",
+                        }}
+                      >
+                        <item.icon size={isFssai ? 28 : 21} strokeWidth={2.1} />
+                      </Box>
+
+                      <Box sx={{ minWidth: 0 }}>
+                        {isFssai ? (
+                          <Typography
+                            sx={{
+                              color: "rgba(255,248,237,0.82)",
+                              fontSize: { xs: "0.7rem", sm: "0.76rem" },
+                              fontWeight: 900,
+                              letterSpacing: "0.12em",
+                              lineHeight: 1.2,
+                              mb: 0.55,
+                              textTransform: "uppercase",
+                            }}
+                          >
+                            Food Safety Certified
+                          </Typography>
+                        ) : null}
+
+                        {/* Title */}
+                        <Typography
+                          sx={{
+                            color: isFssai ? "background.default" : "primary.main",
+
+                            fontSize: {
+                              xs: isFssai ? "1.22rem" : "1rem",
+                              sm: isFssai ? "1.45rem" : "1.05rem",
+                              lg: isFssai ? "1.65rem" : "1.12rem",
+                            },
+
+                            fontWeight: isFssai ? 800 : 600,
+
+                            lineHeight: {
+                              xs: 1.25,
+                              lg: 1.28,
+                            },
+
+                            letterSpacing: 0,
+
+                            maxWidth: {
+                              xs: "100%",
+                              lg: isFssai ? 520 : "11ch",
+                            },
+
+                            textAlign: "left",
+                          }}
+                        >
+                          {item.title}
+                        </Typography>
+
+                        {isFssai ? (
+                          <Typography
+                            sx={{
+                              color: "rgba(255,248,237,0.74)",
+                              fontSize: { xs: "0.82rem", sm: "0.92rem" },
+                              fontWeight: 600,
+                              lineHeight: 1.55,
+                              mt: 0.6,
+                              maxWidth: 620,
+                            }}
+                          >
+                            Prepared in a hygiene-focused kitchen that follows approved food safety standards.
+                          </Typography>
+                        ) : null}
+                      </Box>
+                    </Box>
+
+                    {isFssai ? (
+                      <Box
+                        sx={{
+                          alignItems: "center",
+                          bgcolor: "rgba(255,248,237,0.14)",
+                          border: "1px solid rgba(255,248,237,0.22)",
+                          borderRadius: 999,
+                          color: "background.default",
+                          display: { xs: "none", md: "inline-flex" },
+                          flexShrink: 0,
+                          fontSize: "0.78rem",
+                          fontWeight: 900,
+                          letterSpacing: "0.08em",
+                          px: 2,
+                          py: 1,
+                          position: "relative",
+                          textTransform: "uppercase",
+                          zIndex: 1,
+                        }}
+                      >
+                        Approved
+                      </Box>
+                    ) : null}
                   </Box>
-
-                  {/* Title */}
-                  <Typography
-                    sx={{
-                      color: "primary.main",
-
-                      fontSize: {
-                        xs: "1rem",
-                        sm: "1.05rem",
-                        lg: "1.12rem",
-                      },
-
-                      fontWeight: 600,
-
-                      lineHeight: {
-                        xs: 1.4,
-                        lg: 1.45,
-                      },
-
-                      letterSpacing: "-0.018em",
-
-                      maxWidth: {
-                        xs: "100%",
-                        lg: "11ch",
-                      },
-
-                      textAlign: {
-                        xs: "left",
-                        lg: "left",
-                      },
-                    }}
-                  >
-                    {item.title}
-                  </Typography>
-                </Box>
-              </SectionReveal>
-            </Grid>
-          ))}
+                </SectionReveal>
+              </Grid>
+            );
+          })}
         </Grid>
       </Box>
 

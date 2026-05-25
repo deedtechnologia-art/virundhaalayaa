@@ -13,7 +13,7 @@ import { createMetadata } from "@/lib/seo";
 export const metadata: Metadata = createMetadata({
   title: "Catering | Tamil Homemade Event Food in Coimbatore",
   description:
-    "Book Virundhaalaya for Tamil homemade catering in Coimbatore: wedding catering, birthday events, corporate catering, festival food, seemantham, and housewarming menus.",
+    "Book Virundhaalaya for Tamil homemade catering in Coimbatore: birthday events, corporate catering, festival food, seemantham, housewarming and many more customizable menus.",
   path: "/catering",
 });
 
@@ -23,7 +23,7 @@ export default function CateringPage() {
       <PageHero
         eyebrow="Tamil Homemade Catering"
         title="Family event food planned with warmth and precision"
-        copy="From wedding virundhu to birthday counters and corporate lunch programs, we build menus around your guests, timing, rituals, and appetite."
+        copy="From birthday counters to family events and corporate lunch programs, we build menus around your guests, timing, rituals, and appetite."
         image="https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=1800&q=85"
         primaryLabel="Send Inquiry"
         primaryHref="/contact"
