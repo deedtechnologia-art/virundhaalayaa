@@ -9,10 +9,11 @@ import SoupKitchenRoundedIcon from "@mui/icons-material/SoupKitchenRounded";
 import StarRoundedIcon from "@mui/icons-material/StarRounded";
 import { Box, Button, Chip, Container, Grid, Stack, Typography } from "@mui/material";
 import { AnimatePresence, motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-const menuGroups = [
+export const menuGroups = [
   {
+    slug: "breakfast-tiffin",
     title: "Breakfast / Tiffin",
     subtitle: "Soft morning classics, fresh chutneys, and tiffin comfort.",
     icon: LocalDiningRoundedIcon,
@@ -20,6 +21,7 @@ const menuGroups = [
     items: ["Idli", "Pongal", "Chapati", "Poori", "Dosa", "Kuzhi Paniyaram", "Adai Avial", "Kambu Koozh"],
   },
   {
+    slug: "lunch-dinner",
     title: "Lunch & Dinner",
     subtitle: "Everyday meals, biriyani batches, and family dinner favourites.",
     icon: RestaurantRoundedIcon,
@@ -27,6 +29,7 @@ const menuGroups = [
     items: ["Tamil Nadu Meals", "Chicken Biriyani", "Mutton Biriyani", "Parotta Kurma", "Kothu Parotta", "Idiyappam Stew", "Appam with Kurma", "Fish Curry Meals"],
   },
   {
+    slug: "variety-rice",
     title: "Variety Rice",
     subtitle: "Quick, aromatic rice varieties prepared with home-style tempering.",
     icon: RiceBowlRoundedIcon,
@@ -34,6 +37,7 @@ const menuGroups = [
     items: ["Lemon Rice", "Curd Rice", "Sambar Sadam", "Kara Kuzhambu Rice", "Tomato Rice", "Coconut Rice", "Tamarind Rice", "Veg Pulao"],
   },
   {
+    slug: "native-special-gravies",
     title: "Native Special Gravies",
     subtitle: "Deep Tamil flavours with roasted masala, pepper, and curry leaves.",
     icon: SoupKitchenRoundedIcon,
@@ -41,6 +45,7 @@ const menuGroups = [
     items: ["Chettinad Chicken", "Pepper Mutton Chukka", "Kari Kuzhambu", "Fish Curry", "Nattu Kozhi Gravy", "Mutton Salna", "Veg Kurma", "Egg Curry"],
   },
   {
+    slug: "sweets",
     title: "Sweets",
     subtitle: "Festival sweetness, made in small batches with patient care.",
     icon: StarRoundedIcon,
@@ -48,6 +53,7 @@ const menuGroups = [
     items: ["Sweet Pongal", "Kesari", "Payasam", "Laddu", "Mysore Pak", "Badusha", "Jangiri", "Halwa"],
   },
   {
+    slug: "long-time-storable-items",
     title: "Long-Time Storable Items",
     subtitle: "Artisan snacks and pantry favourites for gifting and home.",
     icon: SetMealRoundedIcon,
@@ -56,8 +62,33 @@ const menuGroups = [
   },
 ];
 
+function getSectionIndexFromHash(hash: string) {
+  const slug = hash.replace(/^#/, "");
+  return menuGroups.findIndex((group) => group.slug === slug);
+}
+
 export function PremiumMenuExperience() {
   const [open, setOpen] = useState(0);
+
+  useEffect(() => {
+    const openFromHash = () => {
+      const index = getSectionIndexFromHash(window.location.hash);
+      if (index < 0) {
+        return;
+      }
+
+      setOpen(index);
+      window.setTimeout(() => {
+        document
+          .getElementById(`menu-section-${menuGroups[index].slug}`)
+          ?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 320);
+    };
+
+    openFromHash();
+    window.addEventListener("hashchange", openFromHash);
+    return () => window.removeEventListener("hashchange", openFromHash);
+  }, []);
 
   return (
     <Box
@@ -97,10 +128,12 @@ export function PremiumMenuExperience() {
 
             return (
               <Box
-                key={group.title}
+                key={group.slug}
                 component={motion.article}
+                id={`menu-section-${group.slug}`}
                 whileHover={{ y: -3 }}
                 sx={{
+                  scrollMarginTop: { xs: "88px", md: "100px" },
                   backdropFilter: "blur(18px)",
                   background: active
                     ? "linear-gradient(145deg, rgba(255,252,245,0.95), rgba(255,248,237,0.78))"

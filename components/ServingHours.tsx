@@ -1,7 +1,8 @@
 "use client";
 
-import { Box, Chip, Container, Typography } from "@mui/material";
-import { Clock3, Coffee, Flame, Moon, Sparkles, Sun, Sunrise } from "lucide-react";
+import { Box, Button, Chip, Container, Typography } from "@mui/material";
+import { ArrowRight, Clock3, Coffee, Flame, Moon, Sparkles, Sun, Sunrise } from "lucide-react";
+import Link from "next/link";
 import { MotionBox } from "./Motion";
 
 const servingHours = [
@@ -10,6 +11,7 @@ const servingHours = [
     start: "7:00 AM",
     end: "10:00 AM",
     note: "Morning tiffin",
+    menuSlug: "breakfast-tiffin",
     Icon: Sunrise,
   },
   {
@@ -17,6 +19,7 @@ const servingHours = [
     start: "12:00 PM",
     end: "3:00 PM",
     note: "Fresh saapadu",
+    menuSlug: "lunch-dinner",
     Icon: Sun,
   },
   {
@@ -24,6 +27,7 @@ const servingHours = [
     start: "4:00 PM",
     end: "6:00 PM",
     note: "Evening bites",
+    menuSlug: "long-time-storable-items",
     Icon: Coffee,
   },
   {
@@ -31,6 +35,7 @@ const servingHours = [
     start: "6:00 PM",
     end: "9:00 PM",
     note: "Evening comfort",
+    menuSlug: "lunch-dinner",
     Icon: Moon,
   },
 ] as const;
@@ -196,7 +201,7 @@ export function ServingHours() {
               </Box>
             </Box>
 
-            {servingHours.map(({ meal, start, end, note, Icon }, index) => (
+            {servingHours.map(({ meal, start, end, note, menuSlug, Icon }, index) => (
               <MotionBox
                 key={meal}
                 initial={{ opacity: 0, y: 12 }}
@@ -286,7 +291,6 @@ export function ServingHours() {
                   <Typography
                     sx={{
                       color: "text.secondary",
-                      display: { xs: "none", md: "block" },
                       fontSize: "0.72rem",
                       fontWeight: 600,
                       lineHeight: 1.35,
@@ -295,6 +299,39 @@ export function ServingHours() {
                   >
                     {note}
                   </Typography>
+                  <Button
+                    component={Link}
+                    endIcon={<ArrowRight size={14} strokeWidth={2.4} />}
+                    href={`/menu#${menuSlug}`}
+                    size="small"
+                    sx={{
+                      bgcolor: "rgba(122,31,31,0.08)",
+                      border: "1px solid rgba(122,31,31,0.16)",
+                      borderRadius: 999,
+                      color: "primary.main",
+                      fontSize: "0.72rem",
+                      fontWeight: 800,
+                      letterSpacing: "0.04em",
+                      minHeight: 30,
+                      mt: 0.85,
+                      px: 1.35,
+                      textTransform: "none",
+                      "& .MuiButton-endIcon": {
+                        ml: 0.35,
+                        transition: "transform 180ms ease",
+                      },
+                      "&:hover": {
+                        bgcolor: "primary.main",
+                        borderColor: "primary.main",
+                        color: "background.default",
+                        "& .MuiButton-endIcon": {
+                          transform: "translateX(2px)",
+                        },
+                      },
+                    }}
+                  >
+                    Menu
+                  </Button>
                 </Box>
               </MotionBox>
             ))}
