@@ -82,7 +82,7 @@ export function PageHero({
             immediate
             text={title}
             sx={{
-              fontSize: { xs: "3.1rem", md: "6rem" },
+              fontSize: { xs: "2.6rem", md: "4rem" },
               maxWidth: 860,
             }}
           />

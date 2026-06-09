@@ -62,7 +62,7 @@ export default function HomePage() {
             gap: 5,
             minHeight: { xs: "calc(100svh - 74px)", md: "calc(100vh - 84px)" },
             position: "relative",
-            py: { xs: 6.5, sm: 8, md: 12 },
+            py: { xs: 6.5, sm: 8, md: 4 },
           }}
         >
           <Stack
@@ -87,11 +87,12 @@ export default function HomePage() {
               text="Handcrafted Tamil Food, Served with Soul"
               variant="h1"
               sx={{
-                fontSize: {
-                  xs: "clamp(2.8rem, 14vw, 3.7rem)",
-                  sm: "5rem",
-                  md: "7.2rem",
-                },
+                fontSize: { xs: "2.4rem", sm: "3.8rem", md: "5.2rem" },
+                // fontSize: {
+                //   xs: "clamp(2.8rem, 14vw, 3.7rem)",
+                //   sm: "5rem",
+                //   md: "7.2rem",
+                // },
                 maxWidth: { xs: 520, md: 900 },
               }}
             />
@@ -168,7 +169,7 @@ export default function HomePage() {
                 borderRadius: 2,
                 boxShadow: "0 28px 90px rgba(0,0,0,0.24)",
                 p: { xs: 1.5, md: 2.5 },
-                textAlign: "center",
+                textAlign: "left",
               }}
             >
               {/* ── Overline label ────────────────────────────── */}
@@ -198,6 +199,7 @@ export default function HomePage() {
                   letterSpacing: 0,
                   lineHeight: 1.4,
                   mb: { xs: 1, sm: 1.5 },
+                  textAlign: "center",
                 }}
               >
                 உணவே மருந்து
@@ -224,8 +226,8 @@ export default function HomePage() {
                   color: "rgba(122,31,31,0.18)",
                   display: "block",
                   fontFamily: "Georgia, serif",
-                  fontSize: { xs: "2rem", sm: "3.5rem" },
-                  lineHeight: 0.6,
+                  fontSize: { xs: "2rem", sm: "2rem" },
+                  lineHeight: 0,
                   mb: { xs: 0.5, sm: 1 },
                   userSelect: "none",
                 }}
@@ -244,14 +246,15 @@ export default function HomePage() {
                     WebkitTextFillColor: "transparent",
                     backgroundClip: "text",
                     fontFamily: "var(--font-tamil-serif)",
-                    fontSize: { xs: "1rem", sm: "1.05rem", md: "1.1rem" },
+                    fontSize: { xs: "1rem", sm: "1.05rem", md: "1rem" },
                     fontWeight: 700,
                     letterSpacing: 0,
+                    wordSpacing: "0.1em",
                     lineHeight: 2,
                     mb: 0,
                   }}
                 >
-                  மருந்தென வேண்டாவாம் யாக்கைக்கு
+                  மருந்தென வேண்டாவாம் யாக்கைக்கு அருந்தியது
                 </Typography>
                 <Typography
                   component="p"
@@ -262,14 +265,15 @@ export default function HomePage() {
                     WebkitTextFillColor: "transparent",
                     backgroundClip: "text",
                     fontFamily: "var(--font-tamil-serif)",
-                    fontSize: { xs: "1rem", sm: "1.05rem", md: "1.1rem" },
+                    fontSize: { xs: "1rem", sm: "1.05rem", md: "1rem" },
                     fontWeight: 700,
                     letterSpacing: 0,
                     lineHeight: 2,
                     mb: 2.5,
+                    wordSpacing: "0.1em",
                   }}
                 >
-                  அருந்தியது அற்றது போற்றி உணின்
+                   அற்றது போற்றி உணின்
                 </Typography>
 
                 {/* ── Author signature (centred) ────────────── */}
@@ -279,11 +283,11 @@ export default function HomePage() {
                     borderTop: "1px solid rgba(62,39,35,0.12)",
                     display: "flex",
                     gap: 0.75,
-                    justifyContent: "center",
+                    justifyContent: "right",
                     pt: 1.5,
                   }}
                 >
-                  <Box
+                  {/* <Box
                     sx={{
                       bgcolor: "rgba(212,160,23,0.22)",
                       borderRadius: "50%",
@@ -291,7 +295,7 @@ export default function HomePage() {
                       height: { xs: 16, sm: 22 },
                       width: { xs: 16, sm: 22 },
                     }}
-                  />
+                  /> */}
                   <Typography
                     component="cite"
                     sx={{
@@ -301,6 +305,7 @@ export default function HomePage() {
                       fontStyle: "normal",
                       fontWeight: 500,
                       letterSpacing: 0,
+                      alignItems:"right",
                     }}
                   >
                     — திருவள்ளுவர்
@@ -610,7 +615,7 @@ export default function HomePage() {
           color: "background.default",
           overflow: "hidden",
           pb: { xs: 15, sm: 12, md: 12 },
-          pt: { xs: 6.5, sm: 7.5, md: 12 },
+          pt: { xs: 6.5, sm: 7.5, md: 4 },
           position: "relative",
         }}
       >
