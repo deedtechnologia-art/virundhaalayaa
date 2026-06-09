@@ -359,27 +359,6 @@ export function ServingHours() {
               }}
             />
           </Box>
-
-          <Box
-            aria-hidden="true"
-            sx={{
-              alignItems: "center",
-              bgcolor: "rgba(255,248,237,0.72)",
-              border: "1px solid rgba(212,160,23,0.24)",
-              borderRadius: "50%",
-              bottom: { xs: -22, md: -18 },
-              color: "warning.main",
-              display: { xs: "none", sm: "flex" },
-              height: 48,
-              justifyContent: "center",
-              position: "absolute",
-              right: { sm: 18, md: 28 },
-              width: 48,
-              zIndex: 2,
-            }}
-          >
-            <Sparkles size={18} strokeWidth={1.9} />
-          </Box>
         </MotionBox>
       </Container>
     </Box>
