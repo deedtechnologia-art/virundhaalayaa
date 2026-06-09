@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { PageHero } from "@/components/PageHero";
 import { PremiumMenuExperience } from "@/components/PremiumMenuExperience";
 import { businessConfig } from "@/lib";
@@ -24,7 +25,9 @@ export default function MenuPage() {
         secondaryLabel="Book Catering"
         secondaryHref="/catering"
       />
-      <PremiumMenuExperience />
+      <Suspense fallback={null}>
+        <PremiumMenuExperience />
+      </Suspense>
     </main>
   );
 }

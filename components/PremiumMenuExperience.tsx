@@ -9,7 +9,8 @@ import SoupKitchenRoundedIcon from "@mui/icons-material/SoupKitchenRounded";
 import StarRoundedIcon from "@mui/icons-material/StarRounded";
 import { Box, Button, Chip, Container, Grid, Stack, Typography } from "@mui/material";
 import { AnimatePresence, motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
+import { useCallback, useEffect, useState } from "react";
 
 export const menuGroups = [
   {
@@ -62,33 +63,63 @@ export const menuGroups = [
   },
 ];
 
-function getSectionIndexFromHash(hash: string) {
-  const slug = hash.replace(/^#/, "");
+function getSectionIndex(slug: string | null | undefined) {
+  if (!slug) {
+    return -1;
+  }
+
   return menuGroups.findIndex((group) => group.slug === slug);
 }
 
+function resolveSectionSlug(searchParams: URLSearchParams) {
+  const fromQuery = searchParams.get("section");
+  if (fromQuery) {
+    return fromQuery;
+  }
+
+  return window.location.hash.replace(/^#/, "") || null;
+}
+
 export function PremiumMenuExperience() {
-  const [open, setOpen] = useState(0);
+  const searchParams = useSearchParams();
+  const [open, setOpen] = useState(-1);
+
+  const openSectionBySlug = useCallback((slug: string) => {
+    const index = getSectionIndex(slug);
+    if (index < 0) {
+      return false;
+    }
+
+    setOpen(index);
+    window.setTimeout(() => {
+      document
+        .getElementById(`menu-section-${slug}`)
+        ?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 480);
+
+    return true;
+  }, []);
+
+  useEffect(() => {
+    const slug = resolveSectionSlug(searchParams);
+    if (slug && openSectionBySlug(slug)) {
+      return;
+    }
+
+    setOpen((current) => (current < 0 ? 0 : current));
+  }, [searchParams, openSectionBySlug]);
 
   useEffect(() => {
     const openFromHash = () => {
-      const index = getSectionIndexFromHash(window.location.hash);
-      if (index < 0) {
-        return;
+      const slug = window.location.hash.replace(/^#/, "");
+      if (slug) {
+        openSectionBySlug(slug);
       }
-
-      setOpen(index);
-      window.setTimeout(() => {
-        document
-          .getElementById(`menu-section-${menuGroups[index].slug}`)
-          ?.scrollIntoView({ behavior: "smooth", block: "start" });
-      }, 320);
     };
 
-    openFromHash();
     window.addEventListener("hashchange", openFromHash);
     return () => window.removeEventListener("hashchange", openFromHash);
-  }, []);
+  }, [openSectionBySlug]);
 
   return (
     <Box

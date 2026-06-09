@@ -302,7 +302,8 @@ export function ServingHours() {
                   <Button
                     component={Link}
                     endIcon={<ArrowRight size={14} strokeWidth={2.4} />}
-                    href={`/menu#${menuSlug}`}
+                    href={`/menu?section=${menuSlug}`}
+                    scroll={false}
                     size="small"
                     sx={{
                       bgcolor: "rgba(122,31,31,0.08)",
