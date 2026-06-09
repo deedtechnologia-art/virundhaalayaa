@@ -84,7 +84,7 @@ export default function HomePage() {
             <AnimatedText
               component="h1"
               immediate
-              text="Handcrafted Tamil Food, Served with Soul"
+              text="Handcrafted Village Food, Served with Soul"
               variant="h1"
               sx={{
                 fontSize: { xs: "2.4rem", sm: "3.8rem", md: "5.2rem" },

@@ -54,7 +54,7 @@ export function Footer() {
               </Stack>
               <Box sx={goldRuleSx} />
               <Typography sx={bodyTextSx}>
-                Handcrafted Tamil meals prepared with tradition, hygiene, and
+                Handcrafted Village meals prepared with tradition, hygiene, and
                 the comfort of home from our Coimbatore kitchen.
               </Typography>
               <Stack direction="row" spacing={1}>

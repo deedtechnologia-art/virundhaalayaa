@@ -2,7 +2,7 @@ export const siteConfig = {
   name: "Virundhaalaya",
   tagline: "Handcrafted Tamil Cuisine",
   description:
-    "Authentic handcrafted Tamil food, heritage meal delivery, and premium family catering in Coimbatore, made with fresh ingredients, slow recipes, and culinary care.",
+    "Authentic handcrafted Village food, heritage meal delivery, and premium family catering in Coimbatore, made with fresh ingredients, slow recipes, and culinary care.",
   url: "https://virundhaalaya.com",
   locale: "en_IN",
   keywords: [
