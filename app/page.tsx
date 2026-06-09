@@ -13,6 +13,7 @@ import { SecretIngredientBadge } from "@/components/SecretIngredientBadge";
 import {
   businessConfig,
   heroImage,
+  heroImageMobile,
   menuItems,
   popularFoods,
   trustHighlights,
@@ -32,8 +33,10 @@ export default function HomePage() {
         }}
       >
         <FloatingCoverImage
-          alt="Tamil heritage feast with biriyani and signature dishes"
-          objectPosition={{ xs: "58% center", sm: "center center" }}
+          alt="Grandmother cooking authentic Tamil village food in a traditional kitchen"
+          mobileObjectPosition="center center"
+          mobileSrc={heroImageMobile}
+          objectPosition="right center"
           priority
           sizes="100vw"
           src={heroImage}

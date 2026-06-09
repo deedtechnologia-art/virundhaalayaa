@@ -1,6 +1,7 @@
 "use client";
 
 import { Box } from "@mui/material";
+import type { SxProps, Theme } from "@mui/material";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
@@ -8,21 +9,35 @@ type FloatingCoverImageProps = {
   alt: string;
   delay?: number;
   duration?: number;
+  mobileObjectPosition?: string | Record<string, string>;
+  mobileSrc?: string;
   objectPosition?: string | Record<string, string>;
   priority?: boolean;
   sizes: string;
   src: string;
 };
 
-export function FloatingCoverImage({
+type ImageLayerProps = {
+  alt: string;
+  delay: number;
+  duration: number;
+  objectPosition: string | Record<string, string>;
+  priority: boolean;
+  sizes: string;
+  src: string;
+  sx?: SxProps<Theme>;
+};
+
+function ImageLayer({
   alt,
-  delay = 0,
-  duration = 7.5,
-  objectPosition = "center",
-  priority = false,
+  delay,
+  duration,
+  objectPosition,
+  priority,
   sizes,
   src,
-}: FloatingCoverImageProps) {
+  sx,
+}: ImageLayerProps) {
   return (
     <Box
       animate={{
@@ -43,6 +58,7 @@ export function FloatingCoverImage({
         "& img": {
           objectPosition,
         },
+        ...sx,
       }}
     >
       <Image
@@ -54,5 +70,56 @@ export function FloatingCoverImage({
         style={{ objectFit: "cover" }}
       />
     </Box>
+  );
+}
+
+export function FloatingCoverImage({
+  alt,
+  delay = 0,
+  duration = 7.5,
+  mobileObjectPosition = "center center",
+  mobileSrc,
+  objectPosition = "center",
+  priority = false,
+  sizes,
+  src,
+}: FloatingCoverImageProps) {
+  if (!mobileSrc) {
+    return (
+      <ImageLayer
+        alt={alt}
+        delay={delay}
+        duration={duration}
+        objectPosition={objectPosition}
+        priority={priority}
+        sizes={sizes}
+        src={src}
+      />
+    );
+  }
+
+  return (
+    <>
+      <ImageLayer
+        alt={alt}
+        delay={delay}
+        duration={duration}
+        objectPosition={mobileObjectPosition}
+        priority={priority}
+        sizes={sizes}
+        src={mobileSrc}
+        sx={{ display: { xs: "block", md: "none" } }}
+      />
+      <ImageLayer
+        alt={alt}
+        delay={delay}
+        duration={duration}
+        objectPosition={objectPosition}
+        priority={priority}
+        sizes={sizes}
+        src={src}
+        sx={{ display: { xs: "none", md: "block" } }}
+      />
+    </>
   );
 }

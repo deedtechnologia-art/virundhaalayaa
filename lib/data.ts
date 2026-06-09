@@ -12,7 +12,9 @@ export type MenuItem = {
 };
 
 export const heroImage =
-  "/images/hero/virundhaalaya-hero.webp";
+  "/images/hero/Virundhaalayaa-Hero2.png";
+
+export const heroImageMobile = "/images/hero/mobile-hero.png";
 
 export const trustHighlights = [
   {
