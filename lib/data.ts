@@ -555,7 +555,7 @@ export const storyTimeline = [
   { year: "2008", title: "Family Kitchen Begins", copy: "Recipes were first cooked for neighbors and relatives who missed everyday Tamil home food." },
   { year: "2014", title: "Catering for Celebrations", copy: "The kitchen grew into intimate events, poojas, birthdays, and office lunches." },
   { year: "2020", title: "Cloud Kitchen Discipline", copy: "Daily operations became more structured with hygiene checklists and reliable delivery." },
-  { year: "Today", title: "Tradition Served Fresh", copy: "Virundhaalaya now brings handmade Tamil food to homes, offices, and family events across Coimbatore." },
+  { year: "Now", title: "Tradition Served Fresh", copy: "Virundhaalaya now brings handmade Tamil food to homes, offices, and family events across Coimbatore." },
 ] as const;
 
 export const faqs = [

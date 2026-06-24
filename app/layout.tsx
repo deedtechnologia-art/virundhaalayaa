@@ -1,5 +1,10 @@
 import type { Metadata, Viewport } from "next";
-import { Noto_Sans_Tamil, Noto_Serif_Tamil, Playfair_Display, Poppins } from "next/font/google";
+import {
+  Noto_Sans_Tamil,
+  Noto_Serif_Tamil,
+  Playfair_Display,
+  Poppins,
+} from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { JsonLd } from "@/components/JsonLd";
 import { PremiumNavbar } from "@/components/PremiumNavbar";
@@ -7,6 +12,7 @@ import { ThemeRegistry } from "@/components/ThemeRegistry";
 import { businessConfig } from "@/lib";
 import { createMetadata, restaurantSchema } from "@/lib/seo";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
 
 const headingFont = Playfair_Display({
   subsets: ["latin"],
@@ -54,7 +60,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html className={`${headingFont.variable} ${bodyFont.variable} ${tamilSerifFont.variable} ${tamilSansFont.variable}`} lang="ta-IN">
+    <html
+      className={`${headingFont.variable} ${bodyFont.variable} ${tamilSerifFont.variable} ${tamilSansFont.variable}`}
+      lang="ta-IN"
+    >
       <body>
         <ThemeRegistry>
           <JsonLd data={restaurantSchema} />
@@ -77,6 +86,8 @@ export default function RootLayout({
             </svg>
             <span>WhatsApp</span>
           </a>
+          {/* Vercel Analytics */}
+          <Analytics />
         </ThemeRegistry>
       </body>
     </html>
